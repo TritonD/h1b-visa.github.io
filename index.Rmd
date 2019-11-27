@@ -6,7 +6,7 @@
 <img src="picture/h1b.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
 
-Hi!
+Hi! Can you see me?
 
 <img src="./picture/H1B homepage.jfif" style="width:75%">
 
