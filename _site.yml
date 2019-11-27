@@ -1,0 +1,19 @@
+name: "my-website"
+output_dir: "."
+navbar:
+  title: "Final Project"
+  right:
+    - text: "Overview"
+      href: about.html
+    - text: "Analysis"
+      href: lives.html
+    - text: "Shiny"
+      href: lives.html 
+    - text: "Dashboard"
+      href: dashboard_folder/flexboard.html
+    - icon: fa-github fa-lg
+      href: https://github.com/TritonD/h1b-visa.github.io
+output:
+  html_document:
+    theme: readable
+    css: style.css
