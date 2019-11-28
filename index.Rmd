@@ -8,5 +8,7 @@
 
 Hi! Can you see me?
 
+Yes, I can
+
 <img src="./picture/H1B homepage.jfif" style="width:75%">
 
