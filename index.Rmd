@@ -10,5 +10,7 @@ Mapping and exploring H1-B Visa Application Characteristics in America
 
 
 
-<img src="./picture/H1B homepage.jfif" width="80%">
+
+<img src="./picture/H1B homepage.jfif" style="width:75%">
+
 
