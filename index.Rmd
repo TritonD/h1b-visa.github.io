@@ -1,12 +1,14 @@
 ---
+title: "The H-1B Visa Applications Project"
+author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
+
 ---
 
-<link rel="stylesheet" href="styles.css" type="text/css">
-
-<img src="picture/h1b.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
 
-Hi! Can you see me?
+Mapping and exploring H1-B Visa Application Characteristics in America
 
-<img src="./picture/H1B homepage.jfif" style="width:75%">
+
+
+<img src="./picture/H1B homepage.jfif" width="80%">
 
