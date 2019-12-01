@@ -1,10 +1,44 @@
 ---
-title: "about"
+title: "About"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+<center>
+
+<img src="./picture/H1B homepage.jfif" style="width:75%">
+
+</center>
+<br>
 
 
+### Motivation
+H1B (Work Visa) is an employment based visa that is granted to an eligible temporary worker in the US.The duration of stay is three years, extendable to six years. Laws limit only 85,000 H-1B visas to be issued each year.The selection process is computer randomly generated from the eligible application pool, which is called "H-1B lottery" by some.
+
+As immigration policies are changing in the US. Many international students are concerned about their eligibility to work in the states. As international students and friends of international students who are able to graduate, we are interested in how H1B visa applications will affect/dictate our job-seeking opportunities. </br><br>
+
+
+### Methods
+Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contain personal details of the employer requesting temporary labor certification and the role itself. For this project, we specifically focused on 2018's data, with some glancing over data from 2010-2017 due to the large sample size for each individual year. We filtered the data to only include H-1B cases that were "certified" and the employer is located in the United States.
+
+-You can find the dataset [here](https://public.enigma.com/spotlight/newsworthy/h1-b-visa-applications).
+
+-The Github repository for this project can be found [here](https://github.com/ktxg/FINAL_PROJECT_P8105).
+
+-The final website can be found here, and corresponding Github repository for the website is located [here](https://github.com/TritonD/h1b-visa.github.io).
+</br><br>
+
+### Research questions
+-What are some most popular state that hire the most H-1B workers?
+
+-Where are the compaines that hire H-1B workers locate?
+
+-What are the cities that have most H-1B workers in California?
+
+-What companies have the most H-1B workers?
+
+-What industries have the most H-1B workers and what is the average wage?</br><br>
+
+### Findings
+The top 10 US states that hire H-1B workers are California, Texas, New York, New Jersey, Illinois, Massachusetts, Pennsylvania, Michigan, Washington and Virginia.
+
+H-1B is used most often for ‘Software Engineer’ and ‘Software Developer’ roles. Majority of H-1B applications were in STEM industries (science, technology, engineering and math).
