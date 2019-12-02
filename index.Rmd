@@ -1,12 +1,39 @@
 ---
+title: "The H-1B Visa Applications Project"
+author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
+
 ---
 
-<link rel="stylesheet" href="styles.css" type="text/css">
-
-<img src="picture/h1b.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
 
-Hi! Can you see me?
+<center>
 
 <img src="./picture/H1B homepage.jfif" style="width:75%">
 
+</center>
+
+
+<h2> Website Overview </h2> 
+<br>
+This project aims to map and exploreH1-B Visa Application Characteristics in America</br><br>
+<i><b>Overview</b></i>:Project proposal including motivation, methods, research questions and findings</br><br>
+<i><b>Analysis</b></i>: b</br><br>
+<i><b>Shiny</b></i>: Graph illustration of top 10 cities in each state that hire H-1B workers, as well as workers' wage range.</br><br>
+<i><b>Dashboard</b></i>: US map with showing amount of cases and wage range in each state; US map with showing average wage for each industry, with top 15 companies listed</br><br>
+
+
+<h2> Background information</h2> 
+<br>
+Here are some extra links related to H-1B if you are interested.
+
+[Everything you need to know](https://www.upcounsel.com/h1b-visa-status):from what is H-1B, how much it cost, who qualified to pros and cons.
+
+[Key-facts](https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/) of H-1B visa: more statistics!
+
+[Employer data hub](https://www.uscis.gov/h-1b-data-hub):includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.
+
+
+
+<h2> Screencast</h2> 
+<br>
+For a brief overview of our website, view our screencast [here]()
