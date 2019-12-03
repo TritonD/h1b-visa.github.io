@@ -5,13 +5,8 @@ navbar:
   right:
     - text: "Overview"
       href: about.html
-<<<<<<< HEAD
-=======
     - text: "Background"
       href: background.html
-    - text: "Analysis"
-      href: lives.html
->>>>>>> 74f02c9899d89980fcc61f80728fa7f06053069c
     - text: "Shiny"
       href: lives.html 
     - text: "Dashboard"
