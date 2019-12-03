@@ -8,11 +8,13 @@ navbar:
     - text: "Background"
       href: background.html
     - text: "Shiny"
-      href: lives.html 
-    - text: "Dashboard1"
-      href: dashboard2/dashboard.html
-    - text: "Dashboard2"
-      href: dashboard2/industry_dashboard.html
+      href: lives.html
+    - text: "Dashboard"
+      menu:
+      - text: "Worksite"
+        href: dashboard2/worksite.html
+      - text: "Industry"
+        href: dashboard2/industry.html
     - icon: fa-github fa-lg
       href: https://github.com/TritonD/h1b-visa.github.io
     - icon: fa-envelope fa-lg
@@ -21,3 +23,4 @@ output:
   html_document:
     theme: readable
     css: style.css
+  
