@@ -1,10 +1,7 @@
 ---
 title: "The H-1B Visa Applications Project"
 author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
-
 ---
-
-
 
 <center>
 
@@ -12,13 +9,11 @@ author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
 
 </center>
 
-
 <h2> Website Overview </h2> 
-<br>
-This project aims to map and exploreH1-B Visa Application Characteristics in America</br><br>
-<i><b>Overview</b></i>:Project proposal including motivation, methods, research questions and findings</br><br>
-<i><b>Shiny</b></i>: Graph illustration of top 10 cities in each state that hire H-1B workers, as well as workers' wage range.</br><br>
-<i><b>Dashboard</b></i>: US map with showing amount of cases and wage range in each state; US map with showing average wage for each industry, with top 15 companies listed</br><br>
+<br> This project aims to map and explore H1-B Visa Application Characteristics in America</br><br>
+<i><b> Overview </b></i>: Our project proposal includes the motivation for out topic choice, methods, research questions and overall findings. </br><br>
+<i><b> Shiny </b></i>: A graph that illustrates the top 10 cities in each state who hire H-1B workers, as well as workers' wage range. </br><br>
+<i><b> Dashboard </b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed. </br><br>
 
 
 <h2> Background information</h2> 
