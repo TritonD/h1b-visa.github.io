@@ -9,8 +9,10 @@ navbar:
       href: background.html
     - text: "Shiny"
       href: lives.html 
-    - text: "Dashboard"
-      href: dashboard_folder/flexboard.html
+    - text: "Dashboard1"
+      href: dashboard2/flexboard.html
+    - text: "Dashboard2"
+      href: dashboard2/industry_dashboard.html
     - icon: fa-github fa-lg
       href: https://github.com/TritonD/h1b-visa.github.io
     - icon: fa-envelope fa-lg
