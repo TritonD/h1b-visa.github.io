@@ -16,18 +16,17 @@ author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
 <i><b> Dashboard </b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed. </br><br>
 
 
-<h2> Background information</h2> 
+<h2> Background information </h2> 
 <br>
 Here are some extra links related to H-1B if you are interested.
 
-[Everything you need to know](https://www.upcounsel.com/h1b-visa-status):from what is H-1B, how much it cost, who qualified to pros and cons.
+[Everything you need to know](https://www.upcounsel.com/h1b-visa-status) about the H-1B visa: This answers questions related to what is it, how much does it cost, who qualifies, and pros and cons.
 
 [Key-facts](https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/) of H-1B visa: more statistics!
 
-[Employer data hub](https://www.uscis.gov/h-1b-data-hub):includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.
-
+[Employer data hub](https://www.uscis.gov/h-1b-data-hub): This includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.
 
 
 <h2> Screencast</h2> 
 <br>
-For a brief overview of our website, view our screencast [here]()
+For a brief overview of our website, view our screencast [here](). 
