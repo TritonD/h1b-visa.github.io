@@ -12,6 +12,7 @@ library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(viridis)
+library(shiny)
 ```
 
 
@@ -43,7 +44,7 @@ h1b_18_adjusted_wage2 =
 
 
 Column {.sidebar}
------------------------------------------------------------------------
+
 
 ```{r}
 states = h1b_18_adjusted_wage2 %>% distinct(worksite_state) %>% pull()
@@ -66,7 +67,7 @@ sliderInput(
 ```
 
 Column {data-width=650}
------------------------------------------------------------------------
+
 
 ### Chart A
 
@@ -85,5 +86,4 @@ h1b_18_adjusted_wage2 %>%
 })
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
+
