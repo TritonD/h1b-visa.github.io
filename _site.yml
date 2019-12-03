@@ -8,7 +8,7 @@ navbar:
     - text: "Background"
       href: background.html
     - text: "Shiny"
-      href: lives.html
+      href: live.html
     - text: "Dashboard"
       menu:
       - text: "Worksite"
