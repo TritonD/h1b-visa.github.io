@@ -1,6 +1,6 @@
 ---
 title: "The H-1B Visa Applications Project"
-author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
+author: "Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao"
 
 
 ---
