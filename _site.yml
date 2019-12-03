@@ -10,7 +10,7 @@ navbar:
     - text: "Shiny"
       href: lives.html 
     - text: "Dashboard1"
-      href: dashboard2/flexboard.html
+      href: dashboard2/dashboard.html
     - text: "Dashboard2"
       href: dashboard2/industry_dashboard.html
     - icon: fa-github fa-lg
@@ -21,3 +21,4 @@ output:
   html_document:
     theme: readable
     css: style.css
+  
