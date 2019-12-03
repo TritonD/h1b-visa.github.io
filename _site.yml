@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "Overview"
       href: about.html
+    - text: "Background"
+      href: background.html
     - text: "Analysis"
       href: lives.html
     - text: "Shiny"

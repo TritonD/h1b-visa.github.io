@@ -12,7 +12,7 @@
 
 
 
-<title>About</title>
+<title>Background</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +23,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -313,40 +320,16 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Background</h1>
 
 </div>
 
 
-<center>
-<p><img src="picture/H1B%20homepage.jfif" style="width:75%"></p>
-</center>
-<p><br></p>
-<div id="motivation" class="section level3">
-<h3>Motivation</h3>
-<p>H1B (Work Visa) is an employment based visa that is granted to an eligible temporary worker in the US.The duration of stay is three years, extendable to six years. Laws limit only 85,000 H-1B visas to be issued each year.The selection process is computer randomly generated from the eligible application pool, which is called “H-1B lottery” by some.</p>
-<p>As immigration policies are changing in the US. Many international students are concerned about their eligibility to work in the states. As international students and friends of international students who are able to graduate, we are interested in how H1B visa applications will affect/dictate our job-seeking opportunities. </br><br></p>
-</div>
-<div id="methods" class="section level3">
-<h3>Methods</h3>
-<p>Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contain personal details of the employer requesting temporary labor certification and the role itself. For this project, we specifically focused on 2018’s data, with some glancing over data from 2010-2017 due to the large sample size for each individual year. We filtered the data to only include H-1B cases that were “certified” and the employer is located in the United States.</p>
-<p>-You can find the dataset <a href="https://public.enigma.com/spotlight/newsworthy/h1-b-visa-applications">here</a>.</p>
-<p>-The Github repository for this project can be found <a href="https://github.com/ktxg/FINAL_PROJECT_P8105">here</a>.</p>
-<p>-The final website can be found here, and corresponding Github repository for the website is located <a href="https://github.com/TritonD/h1b-visa.github.io">here</a>. </br><br></p>
-</div>
-<div id="research-questions" class="section level3">
-<h3>Research questions</h3>
-<p>-What are some most popular state that hire the most H-1B workers?</p>
-<p>-Where are the compaines that hire H-1B workers locate?</p>
-<p>-What are the cities that have most H-1B workers in California?</p>
-<p>-What companies have the most H-1B workers?</p>
-<p>-What industries have the most H-1B workers and what is the average wage?</br><br></p>
-</div>
-<div id="findings" class="section level3">
-<h3>Findings</h3>
-<p>The top 10 US states that hire H-1B workers are California, Texas, New York, New Jersey, Illinois, Massachusetts, Pennsylvania, Michigan, Washington and Virginia.</p>
-<p>H-1B is used most often for ‘Software Engineer’ and ‘Software Developer’ roles. Majority of H-1B applications were in STEM industries (science, technology, engineering and math).</p>
-</div>
+<p>The H-1B is the most common visa U.S employers use to bring skilled foreign workder to the United States. Visas are awarded to employers on a first-come, first-served basis, with applications accepted each year beginning in April. If the number of applications exceeds an annual cap set by Congress during the first five business days of April, visas are awarded through a lottery system.</p>
+<div id="htmlwidget-9ef12425f96b498f164b" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9ef12425f96b498f164b">{"x":{"visdat":{"57ea45860a52":["function () ","plotlyVisDat"]},"cur_data":"57ea45860a52","attrs":{"57ea45860a52":{"x":{},"y":{},"mode":"lines+markers","name":"number of h1b petition filed","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"57ea45860a52.1":{"x":{},"y":{},"mode":"lines+markers","name":"number of h1b peptition approved ","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"fiscal year"},"yaxis":{"domain":[0,1],"automargin":true,"title":" ","range":[0,500000]},"legend":{"x":0.05,"y":1},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2012,2013,2014,2015,2016,2017,2018],"y":[307713,299467,318824,348669,398718,403675,418799],"mode":"lines+markers","name":"number of h1b petition filed","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2012,2013,2014,2015,2016,2017,2018],"y":[262569,286773,315857,275317,345262,365682,332358],"mode":"lines+markers","name":"number of h1b peptition approved ","type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Since 2017, as part of its efforts to “hire American,” the Trump administration plans to further restrict access to America visa and U.S. Citizenship and Immigration Services gave a more limited review to H-1B applicants. It may explain the decreasing number of H1-B visa approved by in 2018, even though the number of H1-B petitions filed rose.</p>
+<p>The number of H1-B petitions filed each year is shaped by employer demand for works, which is influenced by the strength of the economy. The increasing number may indicate that the policy environment didn’t make a large influence on the employer interests to sponsor alien workers.</p>
 
 
 

@@ -1,0 +1,43 @@
+---
+title: "Background"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The H-1B is the most common visa U.S employers use to bring skilled foreign workder to the United States. Visas are awarded to employers on a first-come, first-served basis, with applications accepted each year beginning in April. If the number of applications exceeds an annual cap set by Congress during the first five business days of April, visas are awarded through a lottery system.
+
+```{r echo = FALSE, message = FALSE}
+library(tidyverse)
+library(viridis)
+library(plotly)
+
+options(digits = 2)
+
+h1b_petition = tibble(
+  year = c(2012:2018),
+  petition_number = c(307713, 299467, 318824, 348669, 398718, 403675, 418799),
+  approval_number = c(262569, 286773, 315857, 275317, 345262, 365682, 332358),
+  denial_rate = 1 - (approval_number / petition_number),
+  denial_rate_percent = denial_rate * 100
+)
+
+h1b_petition %>% 
+  plot_ly(x = ~year, y = ~petition_number, name = 'number of h1b petition filed', type = 'scatter', mode = 'lines+markers') %>% 
+  add_trace(y = ~approval_number, name = 'number of h1b peptition approved ', mode = 'lines+markers') %>% 
+  layout(
+    xaxis = list(title = 'fiscal year'),
+    yaxis = list(
+      title = ' ',
+      range = c(0,500000)),
+    legend = list(x = 0.05, y = 1)
+  )
+
+```
+
+Since 2017, as part of its efforts to “hire American,” the Trump administration plans to further restrict access to America visa and U.S. Citizenship and Immigration Services gave a more limited review to H-1B applicants. It may explain the decreasing number of H1-B visa approved by in 2018, even though the number of H1-B petitions filed rose.
+
+The number of H1-B petitions filed each year is shaped by employer demand for works, which is influenced by the strength of the economy. The increasing number may indicate that the policy environment didn't make a large influence on the employer interests to sponsor alien workers.
+
