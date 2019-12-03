@@ -11,24 +11,27 @@ author: "Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao"
 
 </center>
 
-<h2> Website Overview </h2> 
-<br> This project aims to map and explore H1-B Visa Application Characteristics in America</br><br>
-<i><b> Overview </b></i>: Our project proposal includes the motivation for out topic choice, methods, research questions and overall findings. </br><br>
-<i><b> Shiny </b></i>: A graph that illustrates the top 10 cities in each state who hire H-1B workers, as well as workers' wage range. </br><br>
-<i><b> Dashboard </b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed. </br><br>
+<h2>Website Overview</h2> 
+
+<br>This project aims to map and explore H1-B Visa Application Characteristics in America</br><br>
+<i><b>Overview</b></i>: Our project proposal includes the motivation for out topic choice, methods, research questions and overall findings.</br><br>
+
+<i><b>Shiny</b></i>: A graph that illustrates the top 10 cities in each state who hire H-1B workers, as well as workers' wage range.</br><br>
+
+<i><b>Dashboard</b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed.</br><br>
 
 
-<h2> Background information </h2> 
+<h2>Background information</h2> 
 <br>
 Here are some extra links related to H-1B if you are interested.
 
-[Everything you need to know about the H-1B visa](https://www.upcounsel.com/h1b-visa-status): this answers questions related to what it is, how much it costs, who qualifies, and pros and cons.
+[Everything you need to know](https://www.upcounsel.com/h1b-visa-status) about the H-1B visa: this answers questions related to what it is, how much it costs, who qualifies, and pros and cons.
 
 [Key-facts](https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/) of the H-1B visa: more statistics!
 
 [Employer data hub](https://www.uscis.gov/h-1b-data-hub): this includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.
 
 
-<h2> Screencast</h2> 
+<h2>Screencast</h2> 
 <br>
 For a brief overview of our website, please view our screencast [here](). 
