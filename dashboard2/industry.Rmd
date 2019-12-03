@@ -1,0 +1,170 @@
+---
+title: "H1B by Occupations"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(viridis)
+```
+
+
+```{r}
+h1b_2018 = read.csv(file = "./data/dataset.csv")  
+## I created a folder in our project called "data" 
+## then inside it I downloaded the dataset and called it "dataset.csv" 
+
+### this selects the 16 variables we are interested in
+h1b_18_filter = h1b_2018 %>% 
+  janitor::clean_names() %>% 
+  select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
+         naics_code, soc_code, soc_name, total_workers, employment_start_date, employment_end_date, full_time_position,
+         prevailing_wage, pw_unit_of_pay, worksite_city, worksite_state, h1b_dependent) %>%
+  filter(case_status == "CERTIFIED",
+          visa_class == "H-1B",
+          employer_country == "UNITED STATES OF AMERICA") %>% 
+  select(-visa_class, -case_status, -employer_country)
+
+h1b_soc = h1b_18_filter %>% 
+    select(case_number, employer_name, naics_code, soc_code, soc_name, total_workers, employment_start_date, employment_end_date, full_time_position)
+
+```
+
+
+
+```{r}
+#The soc code were too specific. The bls website shows that the first two numbers of the soc code categorizes the industry more broadly. Therefore, case_when was used to make a new soc_code variable. Collapsed most of the industries to others for a reasonable graph and table.
+
+h1b_soc_ind = h1b_soc %>%
+  select(case_number, soc_code) %>% 
+  mutate(soc_code_new = str_remove_all(soc_code, '-'),
+         soc_code_new = as.integer(soc_code_new)) %>% 
+  na.omit() %>% 
+  mutate(soc_code_gen = case_when(
+    soc_code_new >= 110000 & soc_code_new < 120000 ~ "Management",
+    soc_code_new >= 130000 & soc_code_new < 140000 ~"Business, Finance",
+    soc_code_new >= 150000 & soc_code_new < 160000 ~ "Computer, Math",
+    soc_code_new >= 170000 & soc_code_new < 180000 ~ "Architecture, Engineer",
+    soc_code_new >= 190000 & soc_code_new < 200000 ~ "Life, Physcial, Social Science",
+    soc_code_new >= 210000 & soc_code_new < 220000 ~ "Social Service",
+    soc_code_new >= 230000 & soc_code_new < 240000 ~ "Legal",
+    soc_code_new >= 250000 & soc_code_new < 260000 ~ "Education, Training",
+    soc_code_new >= 270000 & soc_code_new < 280000 ~ "Media, Design",
+    soc_code_new >= 290000 & soc_code_new < 300000 ~ "Healthcare Practitioner",
+    soc_code_new >= 410000 & soc_code_new < 420000 ~ "Sales",
+    TRUE ~ "Others")) %>% 
+  mutate(soc_code_gen = as.factor(soc_code_gen))
+
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+#Using the newly coded industry variable, checked to see which sector is the most popular with the H1B applicants. 
+h1b_soc_small = h1b_soc_ind %>%
+  group_by(soc_code_gen) %>%
+  summarize(num_ind = n()) %>% 
+  arrange(desc(num_ind)) %>% 
+  mutate(soc_code_gen = fct_reorder(soc_code_gen, num_ind))
+
+
+h1b_soc_plot = plot_ly(
+    h1b_soc_small, x = ~soc_code_gen, y = ~num_ind, color = ~soc_code_gen, type = "bar", colors = "Set1"
+    ) %>% 
+        layout(title = 'Industries and number of certified H1B applicants',
+           xaxis = list(title = 'Industries'),
+           yaxis = list(title = 'Total Workers'), 
+           showlegend = FALSE)
+
+h1b_soc_plot
+
+```
+
+
+
+```{r}
+## this creates a new column for the adjusted wage per year 
+h1b_18_adjusted_wage = 
+  h1b_18_filter %>% 
+  mutate(pw_unit_of_pay = str_to_lower(pw_unit_of_pay), 
+         adjusted_wage_per_year = prevailing_wage)  
+
+## we know that there are 5 levels for pw_unit_of_pay
+## year, hour, week, month, bi-weekly 
+
+## this converts all pay wages to yearly 
+h1b_18_adjusted_wage = 
+  h1b_18_adjusted_wage %>%
+##select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
+  mutate(adjusted_wage_per_year = 
+           if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
+                   if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
+                           if_else(pw_unit_of_pay == "month", prevailing_wage * 12, 
+                                   if_else(pw_unit_of_pay == "bi-weekly", prevailing_wage * 26, 
+                                           prevailing_wage)))))
+
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+# The new annual wage variable and the industries tables are not in the same table, so inner joined by case_number to form one table with both variables.
+h1b_soc_wage = h1b_18_adjusted_wage %>% 
+  select(case_number, adjusted_wage_per_year) %>% 
+  inner_join(h1b_soc_ind) %>% 
+  select(soc_code_gen, adjusted_wage_per_year)%>% 
+  arrange (desc(adjusted_wage_per_year)) %>% 
+  mutate(soc_code_gen = fct_reorder(soc_code_gen, adjusted_wage_per_year))
+
+h1b_wage_plotly = plot_ly(
+    h1b_soc_wage, x = ~soc_code_gen, y = ~adjusted_wage_per_year, color = ~soc_code_gen, type = "box", colors = "Set2"
+    ) %>% 
+        layout(title = 'Industries and wage distribution of certified H1B applicants',
+           xaxis = list(title = 'Industries'),
+           yaxis = list(title = 'Annual Wage'), 
+           showlegend = FALSE)
+
+h1b_wage_plotly
+
+```
+
+
+### Chart C
+
+```{r}
+#Listed the top 15 companies that the hires the most H1B applicants. 
+  
+h1b_soc_con = h1b_soc %>% 
+  select(employer_name, total_workers) %>% 
+  group_by(employer_name) %>% 
+  summarize(total = n()) %>% 
+  arrange(desc(total)) %>% 
+  top_n(15) %>% 
+  select(employer_name, total) %>% 
+  mutate(employer_name = as.factor(employer_name)) %>% 
+  mutate(employer_name = fct_reorder(employer_name, total))
+
+
+h1b_top_plotly = h1b_soc_con %>% 
+  plot_ly(x = ~employer_name, y = ~total, color = ~employer_name, type = 'bar', colors = "Set2") %>% 
+        layout(title = 'Top 15 companies who has the most H1B Visa Workers',
+           xaxis = list(title = 'Companies'),
+           yaxis = list(title = 'Total Workers'), 
+           showlegend = FALSE)
+
+h1b_top_plotly
+
+```
+

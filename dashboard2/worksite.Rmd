@@ -1,0 +1,161 @@
+---
+title: "H1B Applicant Worksite"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(viridis)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+h1b_2018 = read.csv(file = "./data/dataset.csv")  
+## this is a test to read and open the dataset
+## I created a folder in our project called "data" 
+## then inside it I downloaded the dataset and called it "dataset.csv" 
+## then inside it I downloaded the dataset and called it "dataset.csv"
+####select the 16 variables which we are interested in
+h1b_18_filter = h1b_2018 %>% 
+  janitor::clean_names() %>% 
+  select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
+         naics_code, soc_code, soc_name, total_workers, employment_start_date, employment_end_date, full_time_position,
+         prevailing_wage, pw_unit_of_pay, worksite_city, worksite_state, h1b_dependent) %>%
+  filter(case_status == "CERTIFIED",
+          visa_class == "H-1B",
+          employer_country == "UNITED STATES OF AMERICA") %>% 
+  select(-visa_class, -case_status, -employer_country)
+
+state_ws = 
+  h1b_2018 %>%
+  group_by(worksite_state) %>%
+  summarize(n = n())
+state_ws$hover <- with(state_ws, paste("State", worksite_state, "<br>", "Number", n))
+g2 <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+map_2 <- plot_geo(state_ws, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~n, text = ~hover, locations = ~worksite_state,
+    color = ~n, colors = 'Greens'
+  ) %>%
+  colorbar(title = "H1b Case Number") %>%
+  layout(
+    title = '2018 US H1b by worksite State',
+    geo = g2
+  )
+map_2
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+h1b_location =
+  h1b_18_filter %>% 
+  select(case_number, employer_city, employer_state, worksite_city, worksite_state) 
+h1b_employer_50 = h1b_location %>% 
+  filter(!employer_state %in% c("DC", "GU", "MP", "PR", "VI")) %>% 
+  group_by(employer_state) %>% 
+  summarize(employer_number = n()) %>% 
+  rename("state" = "employer_state")
+h1b_worksite_50 = h1b_location %>% 
+  filter(!worksite_state %in% c("DC", "GU", "MH",  "MP", "PR", "VI")) %>% 
+  group_by(worksite_state) %>% 
+  summarize(worksite_number = n()) %>% 
+  rename("state" = "worksite_state")
+h1b_location_data_big = 
+  full_join(h1b_employer_50, h1b_worksite_50, by = "state") %>% 
+  filter(worksite_number >= 2000 | employer_number >= 2000) 
+  
+h1b_location_data_small =
+  full_join(h1b_employer_50, h1b_worksite_50, by = "state") %>% 
+  filter(worksite_number < 2000 & employer_number < 2000) %>% 
+  mutate(employer_number = sum(employer_number),
+         worksite_number = sum(worksite_number)) %>% 
+  mutate(state = "Others") %>% 
+  select(state, employer_number, worksite_number) 
+others = unique(h1b_location_data_small) 
+h1b_location_data = 
+  bind_rows(h1b_location_data_big , others)
+  
+h1b_location_data %>% 
+  mutate(state = fct_reorder(state, worksite_number)) %>% 
+  plot_ly(x = ~state, y = ~employer_number, type = 'bar', name = 'headquater location') %>% 
+  add_trace(y = ~worksite_number, name = 'work location') %>%
+  layout(yaxis = list(title = 'Count'), barmode = 'group', legend = list(x = 0.1, y = 0.9))
+
+```
+
+### Chart C
+
+```{r}
+## this creates a new column for the adjusted wage per year 
+h1b_18_adjusted_wage = 
+  h1b_18_filter %>% 
+  mutate(pw_unit_of_pay = str_to_lower(pw_unit_of_pay), 
+         adjusted_wage_per_year = prevailing_wage)  
+
+## we know that there are 5 levels for pw_unit_of_pay
+## year, hour, week, month, bi-weekly 
+
+## this converts all pay wages to yearly 
+h1b_18_adjusted_wage = 
+  h1b_18_adjusted_wage %>%
+
+  select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage, worksite_state, employer_state) %>% 
+
+##select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
+  mutate(adjusted_wage_per_year = 
+           if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
+                   if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
+                           if_else(pw_unit_of_pay == "month", prevailing_wage * 12, 
+                                   if_else(pw_unit_of_pay == "bi-weekly", prevailing_wage * 26, 
+                                           prevailing_wage)))))
+
+
+wage_state2 = 
+  h1b_18_adjusted_wage %>% 
+  group_by(worksite_state) %>%
+  summarize(mean_wage = mean(adjusted_wage_per_year))
+
+wage_state2$hover <- with(wage_state2, paste("State", worksite_state, "<br>", "Mean wage", mean_wage))
+
+g4 <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p4 <- plot_geo(wage_state2, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~mean_wage, text = ~hover, locations = ~worksite_state,
+    color = ~mean_wage, colors = 'Blues'
+  ) %>%
+  colorbar(title = "Mean wage") %>%
+  layout(
+    title = '2018 US H1b mean wage by State',
+    geo = g4
+  )
+
+
+p4
+```
+
