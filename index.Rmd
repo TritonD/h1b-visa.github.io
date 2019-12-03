@@ -21,7 +21,7 @@ author: "Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao"
 <i><b>Dashboard</b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed.</br><br>
 
 
-<h2>Background information</h2> 
+<h2>Additional Links</h2> 
 <br>
 Here are some extra links related to H-1B if you are interested.
 

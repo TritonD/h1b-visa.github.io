@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao" />
+<meta name="author" content="Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao" />
 
 
 <title>The H-1B Visa Applications Project</title>
@@ -279,7 +279,7 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="about.html">Overview</a>
+  <a href="about.html">About</a>
 </li>
 <li>
   <a href="background.html">Background</a>
@@ -287,11 +287,20 @@ $(document).ready(function () {
 <li>
   <a href="lives.html">Shiny</a>
 </li>
-<li>
-  <a href="dashboard2/dashboard.html">Dashboard1</a>
-</li>
-<li>
-  <a href="dashboard2/industry_dashboard.html">Dashboard2</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Dashboard
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="dashboard2/worksite.html">Worksite</a>
+    </li>
+    <li>
+      <a href="dashboard2/industry.html">Industry</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/TritonD/h1b-visa.github.io">
@@ -315,7 +324,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">The H-1B Visa Applications Project</h1>
-<h4 class="author">Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao</h4>
+<h4 class="author">Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao</h4>
 
 </div>
 
@@ -326,12 +335,14 @@ $(document).ready(function () {
 <h2>
 Website Overview
 </h2>
-<p><br> This project aims to map and explore H1-B Visa Application Characteristics in America</br><br> <i><b> Overview </b></i>: Our project proposal includes the motivation for out topic choice, methods, research questions and overall findings. </br><br> <i><b> Shiny </b></i>: A graph that illustrates the top 10 cities in each state who hire H-1B workers, as well as workers’ wage range. </br><br> <i><b> Dashboard </b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed. </br><br></p>
+<p><br>This project aims to map and explore H1-B Visa Application Characteristics in America</br><br> <i><b>Overview</b></i>: Our project proposal includes the motivation for out topic choice, methods, research questions and overall findings.</br><br></p>
+<p><i><b>Shiny</b></i>: A graph that illustrates the top 10 cities in each state who hire H-1B workers, as well as workers’ wage range.</br><br></p>
+<p><i><b>Dashboard</b></i>: Maps of the US showing the amount of applications and wage range in each state, average wage for each industry, and the top 15 companies listed.</br><br></p>
 <h2>
 Background information
 </h2>
 <p><br> Here are some extra links related to H-1B if you are interested.</p>
-<p><a href="https://www.upcounsel.com/h1b-visa-status">Everything you need to know about the H-1B visa</a>: this answers questions related to what it is, how much it costs, who qualifies, and pros and cons.</p>
+<p><a href="https://www.upcounsel.com/h1b-visa-status">Everything you need to know</a> about the H-1B visa: this answers questions related to what it is, how much it costs, who qualifies, and pros and cons.</p>
 <p><a href="https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/">Key-facts</a> of the H-1B visa: more statistics!</p>
 <p><a href="https://www.uscis.gov/h-1b-data-hub">Employer data hub</a>: this includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.</p>
 <h2>
