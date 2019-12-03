@@ -9,6 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The H-1B is the most common visa U.S employers use to bring skilled foreign workder to the United States. Visas are awarded to employers on a first-come, first-served basis, with applications accepted each year beginning in April. If the number of applications exceeds an annual cap set by Congress during the first five business days of April, visas are awarded through a lottery system.
 
+<center>
+
 ```{r echo = FALSE, message = FALSE}
 library(tidyverse)
 library(viridis)
@@ -37,7 +39,13 @@ h1b_petition %>%
 
 ```
 
+</center>
+
 Since 2017, as part of its efforts to “hire American,” the Trump administration plans to further restrict access to America visa and U.S. Citizenship and Immigration Services gave a more limited review to H-1B applicants. It may explain the decreasing number of H1-B visa approved by in 2018, even though the number of H1-B petitions filed rose.
 
 The number of H1-B petitions filed each year is shaped by employer demand for works, which is influenced by the strength of the economy. The increasing number may indicate that the policy environment didn't make a large influence on the employer interests to sponsor alien workers.
+
+
+<img src="./picture/Buy-American-Hire-American.jpg" style="width:75%">
+
 
