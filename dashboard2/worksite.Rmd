@@ -2,7 +2,7 @@
 title: "H1B Applicant Worksite"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
 ---
 
@@ -13,10 +13,10 @@ library(plotly)
 library(viridis)
 ```
 
-Column {data-width=650}
+Row {data-height=350}
 -----------------------------------------------------------------------
 
-### Chart A
+### 2018 US H1-B Application Numbers by States (Worksite vs. Employer's Headquater)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
@@ -35,38 +35,6 @@ h1b_18_filter = h1b_2018 %>%
           employer_country == "UNITED STATES OF AMERICA") %>% 
   select(-visa_class, -case_status, -employer_country)
 
-state_ws = 
-  h1b_2018 %>%
-  group_by(worksite_state) %>%
-  summarize(n = n())
-state_ws$hover <- with(state_ws, paste("State", worksite_state, "<br>", "Number", n))
-g2 <- list(
-  scope = 'usa',
-  projection = list(type = 'albers usa'),
-  showlakes = TRUE,
-  lakecolor = toRGB('white')
-)
-map_2 <- plot_geo(state_ws, locationmode = 'USA-states') %>%
-  add_trace(
-    z = ~n, text = ~hover, locations = ~worksite_state,
-    color = ~n, colors = 'Greens'
-  ) %>%
-  colorbar(title = "H1b Case Number") %>%
-  layout(
-    title = '2018 US H1b by worksite State',
-    geo = g2
-  )
-map_2
-
-
-```
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
 h1b_location =
   h1b_18_filter %>% 
   select(case_number, employer_city, employer_state, worksite_city, worksite_state) 
@@ -99,9 +67,65 @@ h1b_location_data %>%
   mutate(state = fct_reorder(state, worksite_number)) %>% 
   plot_ly(x = ~state, y = ~employer_number, type = 'bar', name = 'headquater location') %>% 
   add_trace(y = ~worksite_number, name = 'work location') %>%
-  layout(yaxis = list(title = 'Count'), barmode = 'group', legend = list(x = 0.1, y = 0.9))
-
+  layout(
+    xaxis = list(title = ' '),
+    yaxis = list(title = ''), barmode = 'group', legend = list(x = 0, y = 1))
 ```
+
+row {data-height=350} {.tabset}
+-----------------------------------------------------------------------
+
+### 2018 US H1-B Application Numbers by Worksite State 
+
+```{r}
+state_ws = 
+  h1b_2018 %>%
+  group_by(worksite_state) %>%
+  summarize(n = n())
+state_ws$hover <- with(state_ws, paste("State", worksite_state, "<br>", "Number", n))
+g2 <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+map_2 <- plot_geo(state_ws, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~n, text = ~hover, locations = ~worksite_state,
+    color = ~n, colors = 'Greens'
+  ) %>%
+  colorbar(title = "H1b Case Number") %>%
+  layout(
+    geo = g2
+  )
+
+state_number = 
+  h1b_2018 %>%
+  group_by(employer_state) %>%
+  summarize(n = n())
+state_number$hover <- with(state_number, paste("State", employer_state, "<br>", "Number", n))
+l <- list(color = toRGB("white"), width = 2)
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+p <- plot_geo(state_number, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~n, text = ~hover, locations = ~employer_state,
+    color = ~n, colors = 'Purples'
+  ) %>%
+  colorbar(title = "Millions USD") %>%
+  layout(
+    title = '2018 US H1b by State',
+    geo = g)
+
+c <- subplot(p, map_2)
+
+c
+```
+
 
 ### Chart C
 
