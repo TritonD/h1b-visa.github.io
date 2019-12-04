@@ -16,7 +16,7 @@ library(viridis)
 Row {data-height=350}
 -----------------------------------------------------------------------
 
-### 2018 US H-1B Application Numbers by States (Worksite vs. Employer Headquarters)
+### 2018 US H-1B Application Numbers by State (Worksite vs. Employer Headquarters)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
@@ -116,7 +116,7 @@ map_2
 ```
 
 
-### 2018 US Average Wage of H-1B Applicants by Worksite
+### 2018 US Average Wage of H-1B Applicants by Worksite State
 
 ```{r}
 ## this creates a new column for the adjusted wage per year 
