@@ -13,7 +13,6 @@ library(tidyverse)
 library(plotly)
 library(viridis)
 library(shiny)
-library(rsconnect)
 ```
 
 
