@@ -1,5 +1,5 @@
 ---
-title: "H-1B by Industry"
+title: "2018 US H-1B Applications by Industry"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
