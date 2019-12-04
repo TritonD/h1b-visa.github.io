@@ -20,11 +20,11 @@ Row {data-height=350}
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
+
 ## this is a test to read and open the dataset
-## I created a folder in our project called "data" 
-## then inside it I downloaded the dataset and called it "dataset.csv" 
-## then inside it I downloaded the dataset and called it "dataset.csv"
-####select the 16 variables which we are interested in
+## created a folder in our project called "data" and inside it downloaded the dataset and called it "dataset.csv"  
+## selected the 16 variables we are interested in
+
 h1b_18_filter = h1b_2018 %>% 
   janitor::clean_names() %>% 
   select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
@@ -122,7 +122,7 @@ h1b_18_adjusted_wage =
 
   select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage, worksite_state, employer_state) %>% 
 
-##select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
+## select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
   mutate(adjusted_wage_per_year = 
            if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
                    if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
