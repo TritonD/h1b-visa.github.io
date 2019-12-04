@@ -12,6 +12,7 @@ library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(viridis)
+library(shiny)
 ```
 
 
@@ -65,10 +66,11 @@ sliderInput(
   min = min_wage, max = max_wage, value = c(20000, 40000))
 ```
 
-Column {data-width=650}
+
+Column {data-width=900}
 -----------------------------------------------------------------------
 
-### Chart A
+### Chart A: Cities with most H-1B workers
 
 ```{r}
 renderPlotly({ 
@@ -85,18 +87,4 @@ h1b_18_adjusted_wage2 %>%
 })
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
-
-```
-
-### Chart C
-
-```{r}
-
-```
 

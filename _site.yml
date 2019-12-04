@@ -1,14 +1,14 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "Final Project"
+  title: "Home"
   right:
     - text: "About"
       href: about.html
     - text: "Background"
       href: background.html
     - text: "Shiny"
-      href: lives.html
+      href: https://final-project88.shinyapps.io/shiny_dashboard_template/
     - text: "Dashboard"
       menu:
       - text: "Worksite"
