@@ -18,6 +18,7 @@ library(treemap)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
+
 ## created a folder in our project called "data" and inside it downloaded the dataset and called it "dataset.csv" 
 
 ## this selects the 16 variables we are interested in
