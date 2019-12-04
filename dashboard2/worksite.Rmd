@@ -72,6 +72,7 @@ h1b_location_data %>%
     yaxis = list(title = ''), barmode = 'group', legend = list(x = 0, y = 1))
 ```
 
+
 row {data-height=350} {.tabset}
 -----------------------------------------------------------------------
 
@@ -119,8 +120,9 @@ p <- plot_geo(state_number, locationmode = 'USA-states') %>%
   colorbar(title = "Millions USD") %>%
   layout(
     title = '2018 US H1b by State',
-    geo = g)
-
+    geo = g,
+    legend = list(orientation = 'h'))
+p
 c <- subplot(p, map_2)
 
 c
