@@ -16,7 +16,7 @@ library(viridis)
 Row {data-height=350}
 -----------------------------------------------------------------------
 
-### 2018 US H1-B Application Numbers by States (Worksite vs. Employer's Headquater)
+### 2018 US H-1B Application Numbers by States (Worksite vs. Employer's Headquater)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
@@ -65,18 +65,18 @@ h1b_location_data =
   
 h1b_location_data %>% 
   mutate(state = fct_reorder(state, worksite_number)) %>% 
-  plot_ly(x = ~state, y = ~employer_number, type = 'bar', name = 'headquater location') %>% 
-  add_trace(y = ~worksite_number, name = 'work location') %>%
+  plot_ly(x = ~state, y = ~employer_number, type = 'bar', name = 'Headquarter of Employer') %>% 
+  add_trace(y = ~worksite_number, name = 'Worksite') %>%
   layout(
     xaxis = list(title = ' '),
     yaxis = list(title = ''), barmode = 'group', legend = list(x = 0, y = 1))
 ```
 
 
-row {data-height=350} {.tabset}
+row {data-height=350} 
 -----------------------------------------------------------------------
 
-### 2018 US H1-B Application Numbers by Worksite State 
+### 2018 US H-1B Applications by Worksite State 
 
 ```{r}
 state_ws = 
@@ -95,41 +95,16 @@ map_2 <- plot_geo(state_ws, locationmode = 'USA-states') %>%
     z = ~n, text = ~hover, locations = ~worksite_state,
     color = ~n, colors = 'Greens'
   ) %>%
-  colorbar(title = "H1b Case Number") %>%
+  colorbar(title = "Number of Applications") %>%
   layout(
     geo = g2
   )
+map_2
 
-state_number = 
-  h1b_2018 %>%
-  group_by(employer_state) %>%
-  summarize(n = n())
-state_number$hover <- with(state_number, paste("State", employer_state, "<br>", "Number", n))
-l <- list(color = toRGB("white"), width = 2)
-g <- list(
-  scope = 'usa',
-  projection = list(type = 'albers usa'),
-  showlakes = TRUE,
-  lakecolor = toRGB('white')
-)
-p <- plot_geo(state_number, locationmode = 'USA-states') %>%
-  add_trace(
-    z = ~n, text = ~hover, locations = ~employer_state,
-    color = ~n, colors = 'Purples'
-  ) %>%
-  colorbar(title = "Millions USD") %>%
-  layout(
-    title = '2018 US H1b by State',
-    geo = g,
-    legend = list(orientation = 'h'))
-p
-c <- subplot(p, map_2)
-
-c
 ```
 
 
-### Chart C
+### 2018 US Average Wage of H-1B Applicants by Worksite
 
 ```{r}
 ## this creates a new column for the adjusted wage per year 
@@ -175,9 +150,8 @@ p4 <- plot_geo(wage_state2, locationmode = 'USA-states') %>%
     z = ~mean_wage, text = ~hover, locations = ~worksite_state,
     color = ~mean_wage, colors = 'Blues'
   ) %>%
-  colorbar(title = "Mean wage") %>%
+  colorbar(title = "Average Wage ($)") %>%
   layout(
-    title = '2018 US H1b mean wage by State',
     geo = g4
   )
 
