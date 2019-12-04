@@ -13,6 +13,7 @@ library(tidyverse)
 library(plotly)
 library(viridis)
 library(shiny)
+library(rsconnect)
 ```
 
 
@@ -86,4 +87,7 @@ h1b_18_adjusted_wage2 %>%
 })
 ```
 
+```{r}
+rsconnect::deployApp('https://final-project88.shinyapps.io/shiny_dashboard_template')
+```
 
