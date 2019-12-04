@@ -151,7 +151,7 @@ wage_state2 =
 ## layer created to show average wage when hovered over a state
 wage_state2$hover <- with(wage_state2, paste("State", worksite_state, "<br>", "Mean wage", mean_wage))
 
-# gradient color to show range of average wages 
+## gradient color to show range of average wages 
 g4 <- list(
   scope = 'usa',
   projection = list(type = 'albers usa'),
