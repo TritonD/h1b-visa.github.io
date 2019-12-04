@@ -20,7 +20,7 @@ As immigration policies are changing in the U.S., many international students ar
 
 ### Data and Methods
 
-Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contained personal details of the employer requesting temporary labor certification as well as job titles for those petitioning for H-1B Visas. For this project, we specifically focused on the data for 2018, with some skimming of the data from 2010-2017 due to the large data file sizes and sample sizes for each individual year. We filtered the data to only include certified H-1B cases and employers located within the US. 
+Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contained personal details of the employer requesting temporary labor certification as well as H-1B applicants' job titles. For this project, we specifically focused on the data for 2018, with some skimming of the data from 2010-2017 due to the large data file sizes and sample sizes for each individual year. We filtered the data to only include certified H-1B cases and employers located within the US. 
 
 
 - The dataset we used can be found [here](https://public.enigma.com/spotlight/newsworthy/h1-b-visa-applications).
