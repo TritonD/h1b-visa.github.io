@@ -8,7 +8,7 @@ navbar:
     - text: "Background"
       href: background.html
     - text: "Shiny"
-      href: live.html
+      href: https://final-project88.shinyapps.io/shiny_dashboard_template/
     - text: "Dashboard"
       menu:
       - text: "Worksite"

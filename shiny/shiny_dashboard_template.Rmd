@@ -44,7 +44,7 @@ h1b_18_adjusted_wage2 =
 
 
 Column {.sidebar}
-
+-----------------------------------------------------------------------
 
 ```{r}
 states = h1b_18_adjusted_wage2 %>% distinct(worksite_state) %>% pull()
@@ -66,10 +66,11 @@ sliderInput(
   min = min_wage, max = max_wage, value = c(20000, 40000))
 ```
 
-Column {data-width=650}
 
+Column {data-width=900}
+-----------------------------------------------------------------------
 
-### Chart A
+### Chart A: Cities with most H-1B workers
 
 ```{r}
 renderPlotly({ 
@@ -86,7 +87,4 @@ h1b_18_adjusted_wage2 %>%
 })
 ```
 
-```{r}
-rsconnect::deployApp('https://final-project88.shinyapps.io/shiny_dashboard_template')
-```
 
