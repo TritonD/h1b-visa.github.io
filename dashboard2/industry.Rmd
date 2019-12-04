@@ -2,7 +2,7 @@
 title: "H-1B by Occupation"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
+    orientation: columns
     vertical_layout: fill
 ---
 
@@ -11,6 +11,8 @@ library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(viridis)
+library(highcharter)
+library(treemap)
 ```
 
 
@@ -48,22 +50,22 @@ h1b_soc_ind = h1b_soc %>%
   na.omit() %>% 
   mutate(soc_code_gen = case_when(
     soc_code_new >= 110000 & soc_code_new < 120000 ~ "Management",
-    soc_code_new >= 130000 & soc_code_new < 140000 ~"Business, Finance",
-    soc_code_new >= 150000 & soc_code_new < 160000 ~ "Computer, Math",
-    soc_code_new >= 170000 & soc_code_new < 180000 ~ "Architecture, Engineer",
-    soc_code_new >= 190000 & soc_code_new < 200000 ~ "Life, Physcial, Social Science",
-    soc_code_new >= 210000 & soc_code_new < 220000 ~ "Social Service",
-    soc_code_new >= 230000 & soc_code_new < 240000 ~ "Legal",
-    soc_code_new >= 250000 & soc_code_new < 260000 ~ "Education, Training",
-    soc_code_new >= 270000 & soc_code_new < 280000 ~ "Media, Design",
-    soc_code_new >= 290000 & soc_code_new < 300000 ~ "Healthcare Practitioner",
+    soc_code_new >= 130000 & soc_code_new < 140000 ~"Business",
+    soc_code_new >= 150000 & soc_code_new < 160000 ~ "Comp, Math",
+    soc_code_new >= 170000 & soc_code_new < 180000 ~ "Engineer",
+    soc_code_new >= 190000 & soc_code_new < 200000 ~ "Life Science",
+    #soc_code_new >= 210000 & soc_code_new < 220000 ~ "Social Service",
+    #soc_code_new >= 230000 & soc_code_new < 240000 ~ "Legal",
+    soc_code_new >= 250000 & soc_code_new < 260000 ~ "Education",
+    soc_code_new >= 270000 & soc_code_new < 280000 ~ "Media",
+    soc_code_new >= 290000 & soc_code_new < 300000 ~ "Healthcare",
     soc_code_new >= 410000 & soc_code_new < 420000 ~ "Sales",
     TRUE ~ "Others")) %>% 
   mutate(soc_code_gen = as.factor(soc_code_gen))
 
 ```
 
-Row {data-height=350}
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### H-1B Applicantions by Industry
@@ -118,7 +120,7 @@ h1b_18_adjusted_wage =
 ```
 
 
-Row {data-height=650}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Industries and wage distribution of certified H1B applicants
@@ -171,20 +173,15 @@ h1b_soc_con = h1b_soc %>%
 
 #h1b_top_plotly
 
-library(treemap)
 treemap = 
   h1b_soc_con %>% 
   treemap(index = c("employer_name"),vSize = "total", vColor = "total",
               type = "value")
 
 
-library(highcharter)
 highchart() %>% 
   hc_add_series_treemap(treemap, allowDrillToNode = TRUE,
                         layoutAlgorithm = "squarified") 
-
-
-
 
 ```
 
