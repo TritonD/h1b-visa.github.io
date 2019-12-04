@@ -1,8 +1,8 @@
 ---
-title: "H1B by Occupations"
+title: "H-1B by Occupation"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: rows
     vertical_layout: fill
 ---
 
@@ -62,10 +62,10 @@ h1b_soc_ind = h1b_soc %>%
 
 ```
 
-Column {data-width=650}
+Row {data-height=350}
 -----------------------------------------------------------------------
 
-### Chart A
+### H-1B Applicantions by Industry
 
 ```{r}
 #Using the newly coded industry variable, checked to see which sector is the most popular with the H1B applicants. 
@@ -77,17 +77,17 @@ h1b_soc_small = h1b_soc_ind %>%
 
 
 h1b_soc_plot = plot_ly(
-    h1b_soc_small, x = ~soc_code_gen, y = ~num_ind, color = ~soc_code_gen, type = "bar", colors = "Set1"
-    ) %>% 
-        layout(title = 'Industries and number of certified H1B applicants',
-           xaxis = list(title = 'Industries'),
-           yaxis = list(title = 'Total Workers'), 
+    h1b_soc_small, x = ~soc_code_gen, y = ~num_ind, color = ~soc_code_gen, type = "bar", colors = "Set1" ) %>% 
+        layout(
+           xaxis = list(title = ' '),
+           yaxis = list(title = ' '), 
            showlegend = FALSE)
+
 
 h1b_soc_plot
 
-```
 
+```
 
 
 ```{r}
@@ -111,29 +111,30 @@ h1b_18_adjusted_wage =
                                    if_else(pw_unit_of_pay == "bi-weekly", prevailing_wage * 26, 
                                            prevailing_wage)))))
 
+
 ```
 
 
-Column {data-width=350}
+Row {data-height=650}
 -----------------------------------------------------------------------
 
-### Chart B
+### Industries and wage distribution of certified H1B applicants
 
 ```{r}
 # The new annual wage variable and the industries tables are not in the same table, so inner joined by case_number to form one table with both variables.
 h1b_soc_wage = h1b_18_adjusted_wage %>% 
   select(case_number, adjusted_wage_per_year) %>% 
   inner_join(h1b_soc_ind) %>% 
-  select(soc_code_gen, adjusted_wage_per_year)%>% 
-  arrange (desc(adjusted_wage_per_year)) %>% 
+  select(soc_code_gen, adjusted_wage_per_year) %>% 
+  arrange(desc(adjusted_wage_per_year)) %>% 
   mutate(soc_code_gen = fct_reorder(soc_code_gen, adjusted_wage_per_year))
 
 h1b_wage_plotly = plot_ly(
-    h1b_soc_wage, x = ~soc_code_gen, y = ~adjusted_wage_per_year, color = ~soc_code_gen, type = "box", colors = "Set2"
+    h1b_soc_wage, x = ~adjusted_wage_per_year, y = ~soc_code_gen, color = ~soc_code_gen, type = "box", colors = "Set2", orientation = 'h'
     ) %>% 
-        layout(title = 'Industries and wage distribution of certified H1B applicants',
-           xaxis = list(title = 'Industries'),
-           yaxis = list(title = 'Annual Wage'), 
+        layout(
+           xaxis = list(title = 'Annual Wage'),
+           yaxis = list(title = ''), 
            showlegend = FALSE)
 
 h1b_wage_plotly
@@ -141,7 +142,7 @@ h1b_wage_plotly
 ```
 
 
-### Chart C
+### Top 15 companies who has the most H1B Visa Workers
 
 ```{r}
 #Listed the top 15 companies that the hires the most H1B applicants. 
@@ -157,14 +158,29 @@ h1b_soc_con = h1b_soc %>%
   mutate(employer_name = fct_reorder(employer_name, total))
 
 
-h1b_top_plotly = h1b_soc_con %>% 
-  plot_ly(x = ~employer_name, y = ~total, color = ~employer_name, type = 'bar', colors = "Set2") %>% 
-        layout(title = 'Top 15 companies who has the most H1B Visa Workers',
-           xaxis = list(title = 'Companies'),
-           yaxis = list(title = 'Total Workers'), 
-           showlegend = FALSE)
+#h1b_top_plotly = h1b_soc_con %>% 
+#  plot_ly(x = ~employer_name, y = ~total, color = ~employer_name, type = 'bar', colors = "Set2") %>% 
+#        layout(
+#           xaxis = list(title = 'Companies'),
+#           yaxis = list(title = 'Total Workers'), 
+#           showlegend = FALSE)
 
-h1b_top_plotly
+#h1b_top_plotly
+
+library(treemap)
+treemap = 
+  h1b_soc_con %>% 
+  treemap(index = c("employer_name"),vSize = "total", vColor = "total",
+              type = "value")
+
+
+library(highcharter)
+highchart() %>% 
+  hc_add_series_treemap(treemap, allowDrillToNode = TRUE,
+                        layoutAlgorithm = "squarified") 
+
+
+
 
 ```
 
