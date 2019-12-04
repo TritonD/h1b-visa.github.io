@@ -16,15 +16,15 @@ library(viridis)
 Row {data-height=350}
 -----------------------------------------------------------------------
 
-### 2018 US H-1B Application Numbers by States (Worksite vs. Employer's Headquater)
+### 2018 US H-1B Application Numbers by States (Worksite vs. Employer's Headquarter)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
+
 ## this is a test to read and open the dataset
-## I created a folder in our project called "data" 
-## then inside it I downloaded the dataset and called it "dataset.csv" 
-## then inside it I downloaded the dataset and called it "dataset.csv"
-####select the 16 variables which we are interested in
+## created a folder in our project called "data" and inside it downloaded the dataset and called it "dataset.csv"  
+## selected the 16 variables we are interested in
+
 h1b_18_filter = h1b_2018 %>% 
   janitor::clean_names() %>% 
   select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
@@ -35,6 +35,8 @@ h1b_18_filter = h1b_2018 %>%
           employer_country == "UNITED STATES OF AMERICA") %>% 
   select(-visa_class, -case_status, -employer_country)
 
+## Removed locations that are not states
+## Collapse worksite states and employer states that are too sparse
 h1b_location =
   h1b_18_filter %>% 
   select(case_number, employer_city, employer_state, worksite_city, worksite_state) 
@@ -51,7 +53,8 @@ h1b_worksite_50 = h1b_location %>%
 h1b_location_data_big = 
   full_join(h1b_employer_50, h1b_worksite_50, by = "state") %>% 
   filter(worksite_number >= 2000 | employer_number >= 2000) 
-  
+
+##Full join to combine employer states and worksite states into one dataframe.
 h1b_location_data_small =
   full_join(h1b_employer_50, h1b_worksite_50, by = "state") %>% 
   filter(worksite_number < 2000 & employer_number < 2000) %>% 
@@ -61,8 +64,10 @@ h1b_location_data_small =
   select(state, employer_number, worksite_number) 
 others = unique(h1b_location_data_small) 
 h1b_location_data = 
-  bind_rows(h1b_location_data_big , others)
+  bind_rows(h1b_location_data_big, others)
   
+
+##Plotly to map out differences in employer headquarters and employee worksite by states.
 h1b_location_data %>% 
   mutate(state = fct_reorder(state, worksite_number)) %>% 
   plot_ly(x = ~state, y = ~employer_number, type = 'bar', name = 'Headquarter of Employer') %>% 
@@ -79,17 +84,24 @@ row {data-height=350}
 ### 2018 US H-1B Applications by Worksite State 
 
 ```{r}
+## Aggregated total number of H-1B applicants by their worksite states. 
 state_ws = 
   h1b_2018 %>%
   group_by(worksite_state) %>%
   summarize(n = n())
+
+## Layer created to show number of H-1B applicants when hovered over a state.
 state_ws$hover <- with(state_ws, paste("State", worksite_state, "<br>", "Number", n))
+
+##Gradient colors were used to show density of H-1B applicants.
 g2 <- list(
   scope = 'usa',
   projection = list(type = 'albers usa'),
   showlakes = TRUE,
   lakecolor = toRGB('white')
 )
+
+## Use plot_geo (instead of plotly) to create map of the US with observations as scatterpoints
 map_2 <- plot_geo(state_ws, locationmode = 'USA-states') %>%
   add_trace(
     z = ~n, text = ~hover, locations = ~worksite_state,
@@ -122,7 +134,7 @@ h1b_18_adjusted_wage =
 
   select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage, worksite_state, employer_state) %>% 
 
-##select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
+## select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
   mutate(adjusted_wage_per_year = 
            if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
                    if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
@@ -130,14 +142,16 @@ h1b_18_adjusted_wage =
                                    if_else(pw_unit_of_pay == "bi-weekly", prevailing_wage * 26, 
                                            prevailing_wage)))))
 
-
+## Aggregated average wage of H-1B applicants by worksite states. 
 wage_state2 = 
   h1b_18_adjusted_wage %>% 
   group_by(worksite_state) %>%
   summarize(mean_wage = mean(adjusted_wage_per_year))
 
+## Layer created to show average wage when hovered over a state
 wage_state2$hover <- with(wage_state2, paste("State", worksite_state, "<br>", "Mean wage", mean_wage))
 
+#Gradient color to show range of average wages.
 g4 <- list(
   scope = 'usa',
   projection = list(type = 'albers usa'),
@@ -145,6 +159,8 @@ g4 <- list(
   lakecolor = toRGB('white')
 )
 
+
+## Use plot_geo (instead of plotly) to create map of the US with observations as scatterpoints
 p4 <- plot_geo(wage_state2, locationmode = 'USA-states') %>%
   add_trace(
     z = ~mean_wage, text = ~hover, locations = ~worksite_state,

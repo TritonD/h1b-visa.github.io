@@ -13,14 +13,15 @@ output: html_document
 
 ### Motivation for Topic Research 
 
-The US H-1B Work Visa is an employment-based visa that grants an extended amount of stay for eligible temporary workers in the US. The standard duration of stay is three years, but can be extended for up to six years. Laws limit the maximum distribution of new H-1B visas each year, and the selection process involves random computer generation from an eligible application pool, also known as the "H-1B lottery" by some.
-
-As immigration policies are changing in the US and it becomes a hot-topic issue, many international students are concerned about their eligibility to work in the states. We as international students and friends of international students are interested in learning more about the H-1B visa process and how H-1B visa applications will affect or dictate our job-seeking opportunities after graduate school. </br><br>
+The U.S. H-1B Work Visa is an employment-based visa that grants an extended amount of stay for eligible temporary workers in the U.S. The standard duration of stay is three years, but can be extended up to six years. Laws limit the maximum distribution of new H-1B visas each year, and the selection process involves random computer generation from an eligible application pool, also known as the “H-1B lottery” by some. 
+ 
+As immigration policies are changing in the U.S., many international students are concerned about their eligibility to work in the states. We as international students and friends of international students are interested in learning more about the H-1B visa process and how H-1B visa applications will affect or dictate our job-seeking opportunities after graduate school.</br><br>
 
 
 ### Data and Methods
 
-Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contained personal details of the employer requesting temporary labor certification as well as the job titles. For this project, we specifically focused on the data for 2018, with some skimming of the data from 2010-2017 due to the large data and sample size for each individual year. We filtered the data to only include "certified" H-1B cases and employers located in the US. 
+Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification. The dataset contained personal details of the employer requesting temporary labor certification as well as H-1B applicants' job titles. For this project, we specifically focused on the data for 2018, with some skimming of the data from 2010-2017 due to the large file sizes and sample sizes for each individual year. We filtered the data to only include certified H-1B cases and employers located within the US. 
+
 
 - The dataset we used can be found [here](https://public.enigma.com/spotlight/newsworthy/h1-b-visa-applications).
 
@@ -39,7 +40,7 @@ Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor 
 
 - What are the top companies that hire the most H-1B workers?
 
-- What industries have the most H-1B workers and what is the average wage? </br><br>
+- What industries hire the most H-1B workers and what is the average wage? </br><br>
 
 ### Findings 
 
