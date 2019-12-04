@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <h2>Background</h2> 
 
-The H-1B is the most common visa US employers use to bring skilled foreign workers to the states. Visas are awarded to employers on a first-come, first-served basis, with applications open to submission beginning in April. If the number of applications exceed an annual cap set by Congress during the first five business days of April, visas are then awarded through a lottery system. 
+The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Visas are awarded to employers on a first-come, first-served basis, with applications open to submission beginning in April. If the number of applications exceed an annual cap set by Congress during the first five business days of April, visas are then awarded through a lottery system. 
 
 <br>
 
