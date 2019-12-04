@@ -10,10 +10,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao" />
 
 
-<title>The H-1B Visa Applications Project</title>
+<title>The H-1B Visa Project</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +23,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -271,7 +277,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Final Project</a>
+      <a class="navbar-brand" href="index.html">Home</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -279,16 +285,28 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="about.html">Overview</a>
+  <a href="about.html">About</a>
 </li>
 <li>
   <a href="background.html">Background</a>
 </li>
 <li>
-  <a href="lives.html">Shiny</a>
+  <a href="https://final-project88.shinyapps.io/shiny_dashboard_template/">Shiny</a>
 </li>
-<li>
-  <a href="dashboard_folder/flexboard.html">Dashboard</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Dashboard
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="dashboard2/worksite.html">Worksite</a>
+    </li>
+    <li>
+      <a href="dashboard2/industry.html">Industry</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="https://github.com/TritonD/h1b-visa.github.io">
@@ -311,30 +329,45 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">The H-1B Visa Applications Project</h1>
-<h4 class="author">Xingyuan Chen,Xin He,Yunzhi Qian,Stephanie Zhen and Katie Gao</h4>
+<h1 class="title toc-ignore">The H-1B Visa Project</h1>
 
 </div>
 
 
+<div id="xingyuan-chen-xin-he-yunzhi-qian-stephanie-zhen-and-katie-gao" class="section level5">
+<h5><em>Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao</em></h5>
 <center>
 <p><img src="picture/H1B%20homepage.jfif" style="width:75%"></p>
 </center>
+<p><br></p>
 <h2>
-Website Overview
+Background
 </h2>
-<p><br> This project aims to map and exploreH1-B Visa Application Characteristics in America</br><br> <i><b>Overview</b></i>:Project proposal including motivation, methods, research questions and findings</br><br> <i><b>Shiny</b></i>: Graph illustration of top 10 cities in each state that hire H-1B workers, as well as workers’ wage range.</br><br> <i><b>Dashboard</b></i>: US map with showing amount of cases and wage range in each state; US map with showing average wage for each industry, with top 15 companies listed</br><br></p>
-<h2>
-Background information
-</h2>
-<p><br> Here are some extra links related to H-1B if you are interested.</p>
-<p><a href="https://www.upcounsel.com/h1b-visa-status">Everything you need to know</a>:from what is H-1B, how much it cost, who qualified to pros and cons.</p>
-<p><a href="https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/">Key-facts</a> of H-1B visa: more statistics!</p>
-<p><a href="https://www.uscis.gov/h-1b-data-hub">Employer data hub</a>:includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.</p>
+<p>The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Visas are awarded to employers on a first-come, first-served basis, with applications open to submission beginning in April. If the number of applications exceed an annual cap set by Congress during the first five business days of April, visas are then awarded through a lottery system.</p>
+<p><br></p>
+<center>
+<div id="htmlwidget-5df38b0194aeb0594b2a" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5df38b0194aeb0594b2a">{"x":{"visdat":{"817f50bdf7e4":["function () ","plotlyVisDat"]},"cur_data":"817f50bdf7e4","attrs":{"817f50bdf7e4":{"x":{},"y":{},"mode":"lines+markers","name":"Number of H-1B Petitions Filed","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"817f50bdf7e4.1":{"x":{},"y":{},"mode":"lines+markers","name":"Number of H-1B Petitions Approved","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Fiscal Year"},"yaxis":{"domain":[0,1],"automargin":true,"title":" ","range":[0,500000]},"legend":{"x":0.05,"y":1},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2012,2013,2014,2015,2016,2017,2018],"y":[307713,299467,318824,348669,398718,403675,418799],"mode":"lines+markers","name":"Number of H-1B Petitions Filed","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2012,2013,2014,2015,2016,2017,2018],"y":[262569,286773,315857,275317,345262,365682,332358],"mode":"lines+markers","name":"Number of H-1B Petitions Approved","type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</center>
+<p><br></p>
+<p>Since 2017, as part of its efforts to “hire American,” the Trump administration has planned to further restrict access to American visas, which has caused U.S. Citizenship and Immigration Services to more strictly regulate and review H-1B applications. This may explain the decreasing number of approved H-1B visa applications in 2018, even as the number of filed H-1B petitions has risen.</p>
+<p>Since the number of H1-B petitions filed each year is directly shaped by employer demand for work, which is influenced by the strength of the economy, the increasing number of yearly H-1B visa applicants may indicate that the current political environment has not had a large influence on employer’s interests to sponsor alien workers.</p>
+<p><br></p>
+<p><img src="picture/Buy-American-Hire-American.jpg" style="width:75%"></p>
+<p><br></p>
 <h2>
 Screencast
 </h2>
-<p><br> For a brief overview of our website, view our screencast <a href="">here</a></p>
+<p>For a brief overview of our website, you can view our screencast <a href="">here</a>.</p>
+<p><br></p>
+<h2>
+Additional Links
+</h2>
+<p>Here are some additional links about the H-1B visa for those interested in learning more.</p>
+<p><a href="https://www.upcounsel.com/h1b-visa-status">Everything you need to know</a> about the H-1B visa: this answers questions related to what it is, how much it costs, who qualifies, as well as pros and cons.</p>
+<p><a href="https://www.pewresearch.org/fact-tank/2017/04/27/key-facts-about-the-u-s-h-1b-visa-program/">Key-facts</a> of the H-1B visa: more statistics!</p>
+<p><a href="https://www.uscis.gov/h-1b-data-hub">Employer data hub</a>: this includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.</p>
+</div>
 
 
 

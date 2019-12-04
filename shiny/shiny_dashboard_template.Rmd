@@ -1,0 +1,90 @@
+---
+title: "Shiny Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(viridis)
+library(shiny)
+```
+
+
+```{r}
+h1b_2018 = read.csv(file = "./data/dataset.csv")  
+
+h1b_18_filter = h1b_2018 %>% 
+  janitor::clean_names() %>% 
+  select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
+         naics_code, soc_code, soc_name, total_workers, employment_start_date, employment_end_date, full_time_position,
+         prevailing_wage, pw_unit_of_pay, worksite_city, worksite_state, h1b_dependent) %>%
+  filter(case_status == "CERTIFIED",
+          visa_class == "H-1B",
+          employer_country == "UNITED STATES OF AMERICA") %>% 
+  select(-visa_class, -case_status, -employer_country)
+
+h1b_18_adjusted_wage2 = 
+  h1b_18_filter %>% 
+  mutate(pw_unit_of_pay = str_to_lower(pw_unit_of_pay), 
+         adjusted_wage_per_year = prevailing_wage) %>% 
+  select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage, worksite_state, employer_state, worksite_city) %>% 
+  mutate(adjusted_wage_per_year = 
+           if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
+                   if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
+                           if_else(pw_unit_of_pay == "month", prevailing_wage * 12, 
+                                   if_else(pw_unit_of_pay == "bi-weekly", prevailing_wage * 26, 
+                                           prevailing_wage)))))
+```
+
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+states = h1b_18_adjusted_wage2 %>% distinct(worksite_state) %>% pull()
+
+# selectInput widget
+selectInput(
+  "state_choice", 
+  label = h3("Select State"),
+  choices = states)
+
+
+max_wage = h1b_18_adjusted_wage2 %>% distinct(adjusted_wage_per_year) %>% max()
+min_wage = h1b_18_adjusted_wage2 %>% distinct(adjusted_wage_per_year) %>% min()
+  
+# sliderInput widget
+sliderInput(
+  "wage_range", 
+  label = h3("Choose wage range"), 
+  min = min_wage, max = max_wage, value = c(20000, 40000))
+```
+
+
+Column {data-width=900}
+-----------------------------------------------------------------------
+
+### Chart A: Cities with most H-1B workers
+
+```{r}
+renderPlotly({ 
+  
+h1b_18_adjusted_wage2 %>%
+  filter(worksite_state == input[["state_choice"]],
+         adjusted_wage_per_year %in% input$wage_range[1]:input$wage_range[2]) %>% 
+  group_by(worksite_city) %>%
+  summarize(n = n()) %>% 
+  filter(min_rank(desc(n)) <= 10) %>% 
+  mutate(worksite_city = fct_reorder(worksite_city, n)) %>% 
+  plot_ly(x = ~worksite_city, y = ~n, color = 'Pink', type = "bar")
+  
+})
+```
+
+

@@ -1,16 +1,20 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "Final Project"
+  title: "Home"
   right:
-    - text: "Overview"
+    - text: "About"
       href: about.html
     - text: "Background"
       href: background.html
     - text: "Shiny"
-      href: lives.html 
+      href: https://final-project88.shinyapps.io/shiny_dashboard_template/
     - text: "Dashboard"
-      href: dashboard_folder/flexboard.html
+      menu:
+      - text: "Worksite"
+        href: dashboard2/worksite.html
+      - text: "Industry"
+        href: dashboard2/industry.html
     - icon: fa-github fa-lg
       href: https://github.com/TritonD/h1b-visa.github.io
     - icon: fa-envelope fa-lg
@@ -19,3 +23,4 @@ output:
   html_document:
     theme: readable
     css: style.css
+  
