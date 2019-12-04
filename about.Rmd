@@ -5,7 +5,7 @@ output: html_document
 
 <center>
 
-<img src="./picture/H1B homepage.jfif" style="width:75%">
+<img src="./picture/H-1B_about.png" style="width:75%">
 
 </center>
 <br>
@@ -48,3 +48,8 @@ From our data, the top 10 US states that hired the most H-1B workers in 2018 wer
 
 The majority of H-1B approved applications were in the STEM fields (science, technology, engineering and math), with the top industries for total number of H-1B visa applications being computer/math, business/finance, and architecture/engineer. 
 
+<br>
+
+<img src="./picture/TRUMP-H1B-875.gif" style="width:75%">
+
+<br>
