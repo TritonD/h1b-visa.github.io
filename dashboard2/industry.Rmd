@@ -16,10 +16,9 @@ library(viridis)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
-## I created a folder in our project called "data" 
-## then inside it I downloaded the dataset and called it "dataset.csv" 
+## created a folder in our project called "data" and inside it downloaded the dataset and called it "dataset.csv" 
 
-### this selects the 16 variables we are interested in
+## this selects the 16 variables we are interested in
 h1b_18_filter = h1b_2018 %>% 
   janitor::clean_names() %>% 
   select(case_number, visa_class, case_status, employer_name, employer_country, employer_city, employer_state,
@@ -38,7 +37,9 @@ h1b_soc = h1b_18_filter %>%
 
 
 ```{r}
-#The soc code were too specific. The bls website shows that the first two numbers of the soc code categorizes the industry more broadly. Therefore, case_when was used to make a new soc_code variable. Collapsed most of the industries to others for a reasonable graph and table.
+## soc code was too specific, so used the first two numbers of the soc code to categorize industries more broadly via bls website specifications 
+## case_when was used to make a new soc_code variable
+## also collapsed most of the extra industries to "others" variable for a reasonable graph and table
 
 h1b_soc_ind = h1b_soc %>%
   select(case_number, soc_code) %>% 
@@ -68,7 +69,8 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-#Using the newly coded industry variable, checked to see which sector is the most popular with the H1B applicants. 
+## used the newly coded industry variable to see which sector is the most popular with h1b applicants 
+
 h1b_soc_small = h1b_soc_ind %>%
   group_by(soc_code_gen) %>%
   summarize(num_ind = n()) %>% 
@@ -103,7 +105,8 @@ h1b_18_adjusted_wage =
 ## this converts all pay wages to yearly 
 h1b_18_adjusted_wage = 
   h1b_18_adjusted_wage %>%
-##select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
+
+  ## select(pw_unit_of_pay, adjusted_wage_per_year, prevailing_wage) %>% 
   mutate(adjusted_wage_per_year = 
            if_else(pw_unit_of_pay == "hour", prevailing_wage * 40 * 52, 
                    if_else(pw_unit_of_pay == "week", prevailing_wage * 52, 
@@ -120,7 +123,8 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-# The new annual wage variable and the industries tables are not in the same table, so inner joined by case_number to form one table with both variables.
+## the new annual wage variable and the industries tables are not in the same table, so inner joined by case_number to form one table with both variables.
+
 h1b_soc_wage = h1b_18_adjusted_wage %>% 
   select(case_number, adjusted_wage_per_year) %>% 
   inner_join(h1b_soc_ind) %>% 
@@ -144,7 +148,7 @@ h1b_wage_plotly
 ### Chart C
 
 ```{r}
-#Listed the top 15 companies that the hires the most H1B applicants. 
+## listed the top 15 companies that hire the most H1B applicants 
   
 h1b_soc_con = h1b_soc %>% 
   select(employer_name, total_workers) %>% 
