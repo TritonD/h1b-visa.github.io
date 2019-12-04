@@ -1,5 +1,5 @@
 ---
-title: "Our About Page"
+title: "About Our Project"
 output: html_document
 ---
 
