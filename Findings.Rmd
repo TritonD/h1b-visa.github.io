@@ -5,10 +5,17 @@ output: html_document
 
 <center>
 
-<img src="./picture/barrier.jpeg" style="width:75%">
+<img src="./picture/TRUMP-H1B-875.gif" style="width:75%">
 
 </center>
 <br>
 
 
 ### H-1B Applications by State:
+
+
+
+
+<center>
+<br>
+<img src="./picture/barrier.jpeg" style="width:75%">
