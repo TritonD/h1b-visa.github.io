@@ -5,7 +5,7 @@ output: html_document
 
 <center>
 
-<img src="./picture/TRUMP-H1B-875.gif" style="width:75%">
+<img src="./picture/barrier.jpeg" style="width:75%">
 
 </center>
 <br>
@@ -18,4 +18,4 @@ output: html_document
 
 <center>
 <br>
-<img src="./picture/barrier.jpeg" style="width:75%">
+<img src="./picture/H1B homepage.jfif" style="width:75%">

@@ -6,7 +6,7 @@ title: "The H-1B Visa Project"
 
 <center>
 
-<img src="./picture/H1B homepage.jfif" style="width:75%">
+<img src="./picture/H-1B_about.png" style="width:75%">
 
 </center>
 
@@ -83,5 +83,4 @@ Here are some additional links about the H-1B visa for those interested in learn
 [Employer data hub](https://www.uscis.gov/h-1b-data-hub): this includes data from fiscal year 2009 through the third quarter of fiscal year 2019 on employers who have submitted petitions to employ H-1B nonimmigrant workers.
 
 
-<img src="./picture/h-1b-visa.jpg" style="width:75%">
 
