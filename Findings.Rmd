@@ -43,7 +43,7 @@ As we expected, the top companies that hired the most H-1B applicants were consu
 <br><br>
 
 
-### H-1B Applications wage statisics
+### Wage Statisics for H-1B Applicants
 When looking at mean annual wages, California, Washington, and Maine were the top 3 worksite states with the highest mean annual wages. Amongst the three states, California’s mean annual wage was $102,054, Washington’s mean annual wage was $99,153, and Maine’s mean annual wage was $90,434 in 2018.
 <br>
 
