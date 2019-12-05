@@ -1,5 +1,5 @@
 ---
-title: "2018 US H-1B Applications by Industry"
+title: "2018 US H-1B Applications by Industry and Occupation"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -70,7 +70,7 @@ h1b_soc_ind = h1b_soc %>%
 Row {data-height = 450}
 -----------------------------------------------------------------------
 
-### 2018 US H-1B Applicantion Number by Industry
+### 2018 US H-1B Number of Applications by Occupation
 
 ```{r}
 ## used the newly coded industry variable to see which sector is the most popular with h1b applicants 
@@ -123,7 +123,7 @@ h1b_18_adjusted_wage =
 Row {data-height = 550}
 -----------------------------------------------------------------------
 
-### 2018 US Wage Distribution of H-1B Applicants by Industry
+### 2018 US Wage Distribution of H-1B Applicants by Occupation
 
 ```{r}
 ## the new annual wage variable and the industries tables are not in the same table, so inner joined by case_number to form one table with both variables.
@@ -148,7 +148,7 @@ h1b_wage_plotly
 ```
 
 
-### Top 15 Companies which Sponsor Most H-1B Applications in 2018
+### Top 15 Companies that Sponsored the Most H-1B Applications in 2018
 
 ```{r}
 ## listed the top 15 companies that hire the most H1B applicants 

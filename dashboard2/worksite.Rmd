@@ -1,5 +1,5 @@
 ---
-title: "2018 US H-1B Applications by Worksite"
+title: "2018 US H-1B Applications by Worksite Location"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -16,7 +16,7 @@ library(viridis)
 Row {data-height=350}
 -----------------------------------------------------------------------
 
-### 2018 US H-1B Application Numbers by State (Worksite vs. Employer Headquarters)
+### 2018 US H-1B Application Numbers by State (Worksite Location vs. Employer Headquarters)
 
 ```{r}
 h1b_2018 = read.csv(file = "./data/dataset.csv")  
