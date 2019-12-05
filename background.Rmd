@@ -7,8 +7,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
-
 The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Laws limit the maximum distribution of new H-1B visas each year and the selection process involves random computer generation from an eligible application pool, also known as the “H-1B lottery” by some. The standard duration of stay with H-1B visa is three years, but can be extended up to six years. 
 
 <center>
@@ -42,7 +40,6 @@ h1b_petition %>%
 ```
 
 </center>
-<br>
 
 Since 2017, as part of its efforts to “hire American,” the Trump administration has planned to further restrict access to American visas, which has caused the U.S. Citizenship and Immigration Services to more strictly regulate and review H-1B applications. This may explain the decreasing number of approved H-1B visa applications in 2018, even as the number of H-1B petitions filed has risen. 
 
