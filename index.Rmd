@@ -44,13 +44,14 @@ h1b_petition %>%
   plot_ly(x = ~year, y = ~petition_number, name = 'Number of H-1B Petitions Filed', type = 'scatter', mode = 'lines+markers') %>% 
   add_trace(y = ~approval_number, name = 'Number of H-1B Petitions Approved', mode = 'lines+markers') %>% 
   layout(
-    xaxis = list(title = 'Fiscal Year'),
+    xaxis = list(title = ' '),
     yaxis = list(
       title = ' ',
       range = c(0,500000)),
     legend = list(x = 0.05, y = 1)
   )
 ```
+_Data Source: USCIS FY 2014 & 2018 Annual Reports for H-1B Petitions_
 
 </center>
 
