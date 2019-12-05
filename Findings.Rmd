@@ -1,0 +1,14 @@
+---
+title: "Findings"
+output: html_document
+---
+
+<center>
+
+<img src="./picture/barrier.jpeg" style="width:75%">
+
+</center>
+<br>
+
+
+### H-1B Applications by State:

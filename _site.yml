@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "About"
       href: about.html
+    - text: "Findings"
+      href: Finding.html
     - text: "Shiny"
       href: https://final-project88.shinyapps.io/shiny_dashboard_template/
     - text: "Dashboard"

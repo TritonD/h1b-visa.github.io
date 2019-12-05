@@ -70,7 +70,7 @@ h1b_soc_ind = h1b_soc %>%
 Row {data-height = 450}
 -----------------------------------------------------------------------
 
-### 2018 US H-1B Number of Applications by Occupation
+### 2018 Number of US H-1B Applications by Occupation
 
 ```{r}
 ## used the newly coded industry variable to see which sector is the most popular with h1b applicants 
