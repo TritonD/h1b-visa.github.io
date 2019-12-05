@@ -9,7 +9,7 @@ navbar:
       href: https://final-project88.shinyapps.io/shiny_dashboard_template/
     - text: "Dashboard"
       menu:
-      - text: "Worksite"
+      - text: "Worksite Location"
         href: dashboard2/worksite.html
       - text: "Industry"
         href: dashboard2/industry.html
