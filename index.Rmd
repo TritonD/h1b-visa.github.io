@@ -69,7 +69,15 @@ Since the number of H1-B petitions filed each year is directly shaped by employe
 
 <h2>Screencast</h2> 
 
-For a brief overview of our website, you can view our screencast [here](). 
+For a brief overview of our website, you can view our screencast [here](https://vimeo.com/377596366). 
+
+<br>
+
+```{r echo=FALSE, message = FALSE, warning=FALSE}
+library(vembedr)
+embed_url("https://vimeo.com/377596366")
+```
+
 
 <br>
 
