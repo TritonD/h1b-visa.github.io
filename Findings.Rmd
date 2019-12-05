@@ -14,27 +14,12 @@ You can download our [full report](H-1B Visa Project Report.pdf) here.
 <br>
 
 ### H-1B Applications by State 
-
-In 2018, the top 5 states that had the most H-1B applications in descending order were California, Texas, New York, New Jersey, and Illinois.It is interesting to note, however, that there were more companies with headquarters in New Jersey wanting to sponsor H-1B applicants compared to in New York and Texas. From the map, we can see that a majority of the states with more than 10,000 H-1B cases were located on the East coast. 
-<br>
-<<<<<<< HEAD
-
-=======
->>>>>>> d1e65bd15a23d3a91a74b918124340c9c16c1623
-
 In 2018, the top 5 states that had the most H-1B applications in descending order were California, Texas, New York, New Jersey, and Illinois. A majority of the states with more than 10,000 H-1B cases were located on the East coast. It is interesting to note, however, that there were more companies with headquarters in New Jersey wanting to sponsor H-1B applicants compared to in New York and Texas. 
- 
-When looking at mean annual wages, California, Washington, and Maine were the top 3 worksite states with the highest mean annual wages. Most states had mean annual wages between $70,000-90,000. However, there was not necessarily a correlation between average annual wage and number of H-1B applications. Washington and Maine were states that did not have a large number of applicants but did have a high average annual wage. 
- 
+
+When looking at mean annual wages, California, Washington, and Maine were the top 3 worksite states with the highest mean annual wages. Most states had mean annual wages between $70,000-90,000. However, there was not necessarily a correlation between average annual wage and number of H-1B applications. Washington and Maine were states that did not have a large number of applicants but did have a high average annual wage.
+
 The top states that employ the most H-1B applicants, such as California, Texas, and New York, are attractive to foreign workers for a variety of reasons. These reasons could include having a larger initial population size, being good places to settle down or further one’s professional career, increased networking opportunities, and better access to higher-paying jobs. 
-
-<<<<<<< HEAD
-
 <br><br>
-=======
-<br>
->>>>>>> d1e65bd15a23d3a91a74b918124340c9c16c1623
-
 
 ### H-1B Applications by Industry and Occupation
 There was a total of approximately 570,000 certified H-1B applicants. The difference between the first and second most popular occupational fields was quite large; the most popular fields of math and technology had 397,562 number of H-1B applicants compared to the next popular fields of business and finance, which had 46,055 applicants, which is a significant difference. 
