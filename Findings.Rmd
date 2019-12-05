@@ -37,4 +37,4 @@ When looking at mean annual wages, California, Washington, and Maine were the to
 
 <center>
 <br>
-<img src="./picture/H1B homepage.jfif" style="width:75%">
+<img src="./picture/H1B homepage.jfif" style="width:50%">
