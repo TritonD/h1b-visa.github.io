@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>H-1B Visa Project Report</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="Findings.html">Findings</a>
+</li>
+<li>
+  <a href="https://final-project88.shinyapps.io/shiny_dashboard_template/">Shiny</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Dashboard
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="dashboard2/worksite.html">Worksite Location</a>
+    </li>
+    <li>
+      <a href="dashboard2/industry.html">Industry</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/TritonD/h1b-visa.github.io">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="mailto:&lt;yunzhiqian2013@gmail.com&gt;">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">H-1B Visa Project Report</h1>
+
+</div>
+
+
+<p><strong>Group Member</strong></p>
+<p>Xingyuan Chen, Xin He, Yunzhi Qian, Stephanie Zhen and Katie Gao</p>
+<p><strong>Background</strong></p>
+<p>The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Laws limit the maximum distribution of new H-1B visas each year and the selection process involves random computer generation from an eligible application pool, also known as the “H-1B lottery” by some. The standard duration of stay with H-1B visa is three years, but can be extended up to six years.</p>
+<p>Since 2017, as part of its efforts to “hire American,” the Trump administration has planned to further restrict access to H-1B visas, which has caused U.S. Citizenship and Immigration Services to more strictly regulate and review H-1B applications. This may explain the decreasing number of approved H-1B visa applications in 2018, even as the number of filed H-1B petitions has risen.</p>
+<p>Since the number of H-1B petitions filed each year is directly shaped by employer demand for work, which is influenced by the strength of the economy, the increasing number of yearly H-1B visa applicants may indicate that the current political environment has not had a large influence on employer’s interests to sponsor alien workers.</p>
+<p><strong>Motivation</strong></p>
+<p>As immigration policies are changing in the U.S., many international students are concerned about their eligibility to work in the states. We as international students and friends of international students are interested in learning more about H-1B sponsorship opportunities and how H-1B visa applications will affect or dictate our job-seeking potential after graduate school.</p>
+<p><strong>Data and Methods</strong></p>
+<p>Data was obtained from the U.S. Department of Labor’s Office of Foreign Labor Certification via Enigma, an open source website with the largest publicly available government-related data. The dataset contained details of the employer requesting temporary labor certification as well as H-1B applicants’ employment information.</p>
+<p>For this project, we specifically focused on the data for 2018, with some skimming of the data from 2010-2017 due to the large file and sample sizes for each individual year. We filtered the data to only include certified H-1B cases and employers located within the US. Of the 52 variables, only 19 variables had information that was most pertinent to our exploratory analysis so we focused on those and filtered out the rest. These variables included: case number, visa type, case status, company name, employer’s location (city, state, country), business code, occupation code, occupation name, number of applicants employers expected to hire, employee’s contracted date (start date, end date), employee’s wages (amount, unit), employee’s worksite (city, state), H-1B dependency, and full time positions.</p>
+<p><strong>Research Questions</strong></p>
+<ul>
+<li><p>Which states hire the most H-1B workers?</p></li>
+<li><p>For companies that hire H-1B workers, where are they located?</p></li>
+<li><p>What cities in California hire the most H-1B workers?</p></li>
+<li><p>What are the top companies that hire the most H-1B workers?</p></li>
+<li><p>What industries hire the most H-1B workers and what is the average wage?</p></li>
+</ul>
+<p><strong>Exploratory Analysis &amp; Findings</strong></p>
+<ol style="list-style-type: decimal">
+<li>2018 US H-1B Applications by State</li>
+</ol>
+<p>We screened out the H-1B applicants whose worksites and/or employer headquarters were located outside of the U.S. In addition, we combined the states where the numbers of applicants were under 2,000 together as “Others.” To better show the distribution of H-1B visas by state, we created a bar chart and gradient maps of the U.S.</p>
+<p>We ranked the number of H-1B applicants by worksite state in ascending order as well as number of company headquarters within the state. We noticed that the worksite locations for many H-1B applicants differed from the actual company headquarter locations, so we were careful to differentiate between the two variables for clarity.</p>
+<p>In 2018, the top 5 states that had the most H-1B applications in descending order were California, Texas, New York, New Jersey, and Illinois. It is interesting to note, however, that there were more companies with headquarters in New Jersey wanting to sponsor H-1B applicants compared to in New York and Texas. Comparing the top three states, California had a total of 128,447 applicants, Texas had a total of 64,506, and New York had a total of 58,296. Apart from the top five, other states that had more than 10,000 H-1B applicants included Washington, Arizona, Minnesota, Michigan, Ohio, Massachusetts, Pennsylvania, Virginia, North Carolina, Georgia, and Florida. The remaining states had less than 10,000 H-1B applicants. From the map, we can see that a majority of the states with more than 10,000 H-1B cases were located on the East coast.</p>
+<p>When looking at mean annual wages, California, Washington, and Maine were the top 3 worksite states with the highest mean annual wages. Amongst the three states, California’s mean annual wage was $102,054, Washington’s mean annual wage was $99,153, and Maine’s mean annual wage was $90,434 in 2018. Tennessee and Louisiana were the only states that had mean annual wages less than $70,000. The other states had mean annual wages between $70,000-90,000.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>2018 US H-1B Applications by City</li>
+</ol>
+<p>The Shiny tab is an interactive platform that shows the number of H-1B applicants from the top ten cities in each US state. Users are able to choose the state and wage range for H-1B applicants as they like. The wage range varies between a minimum of $15,080 and a maximum of $624,000. Using California as an example, the top ten cities for H-1B applicants with a wage range between $20,000 and $200,000 include San Francisco, San Jose, Sunnyvale, Mountainview, Santa Clara, Los Angeles, Palo Alto, San Diego, Irvine, and Fremont.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>2018 US H-1B Applications by Industry and Occupation</li>
+</ol>
+<p>To determine the types of occupations that have the most H-1B applicants, the wage distribution across occupation groups, and the top companies that hire the most H-1B applicants, we created a boxplot, barchart, and treemap, respectively, to better view the data.</p>
+<p>The Standard Occupation Classification system (SOC code) was used to reveal specific and detailed information on the occupation of the applicant. However, one drawback was that the code was too specific to be efficiently categorized. To better handle the data, we decided to look at just the first two numbers of the SOC code that indicated the applicant’s major occupation group (BLS website). Since only 10 of the 22 groups categorized contained a significant amount of people, the remaining 12 groups were collapsed together into a “Others” group. Applicants without a SOC code were dropped from the analysis. A bar chart was used to show the resulting number of applicants for each occupational field. There was a total of approximately 570,000 certified H-1B applicants, and the math and technology occupational fields had the largest number of H-1B applicants (397,562) followed by business and finance (46,055).</p>
+<p>To analyze the wage distribution amongst all occupations, wages were standardized to yearly annual wages. We decided to use a boxplot to represent the median, 25th and 75th percentile of annual wages by occupation since it revealed more information than simply displaying average wage. We wanted to show more than just average wage so that we could take into account any kind of potential skew that could occur due to the influence of outliers (e.g. positions of seniority and other high wage jobs) for occupational groups, especially those comprised of fewer individuals. Boxplots can portray a wider range of wages and the median is more resistant to the influence of outliers. The top 3 occupational fields with the highest median wage were management ($118,144), sales ($102,232), and healthcare ($84,760). A tree map was used to show the Top 15 companies that hired the most H-1B applicants. This was done for the sake of simplicity and also to look at the types of companies that hired the most applicants compared to the occupational fields that contained the most applicants. The companies that hired the most certified H-1B applicants were, in descending order, Deloitte Consulting (15,596 applicants), Tata Consultancy Services (14,489 applicants), Infosys (11,547 applicants), and Cognizant Technology Solutions Corp (10,189 applicants). The remaining companies hired less than 10,000 applicants.</p>
+<p><strong>Discussion</strong></p>
+<p>In a nutshell, our analysis of H-1B data revealed two important things: 1) popular locations that employ the most H-1B applicants, and 2) the kinds of companies that are willing to sponsor H-1B applicants. The top states that employ the most H-1B applicants, such as California, Texas, and New York, are attractive to foreign workers for a variety of reasons. These reasons could include having a larger initial population size, being good places to settle down or further one’s professional career, increased networking opportunities, and better access to higher-paying jobs.</p>
+<p>It is interesting to note that these findings also correlate with the popularity of states for immigration. According to Pew Research, California, New York, and New Jersey were the states with the highest ratio of foreign-born immigrants in 2017. Our data also revealed that the tech industry most heavily employs H-1B applicants, which just further goes to show how rapidly the tech field is growing.</p>
+<p>We also found that average annual wage and number of H-1B applications by state were not necessarily correlated. In contrast to California, which had both a large number of H-1B applicants and a high average annual wage, Washington and Maine were states that had high average annual wages but a lower amount of applicants.</p>
+<p>As for initial expectations, we originally thought that the computer/math and healthcare fields would sponsor the most H-1B applicants due to the rapid growth of these fields in the US, according to the Bureau of Labor Statistics. We expected the median annual wage for the computer/math fields to be around $85,000 and for the healthcare field to be around $100,000. We also expected the top companies to be from technology, consulting, and hospitals.</p>
+<p>What we found was actually quite unexpected; the data results not only met our expectations, but also exceeded them. The math and technology fields did contain the most applicants, but it was more than we had expected. In fact, more than two-thirds of applicants came from those fields. Conversely, there were far fewer healthcare practitioners applying for H-1B visas than we had initially expected; only 20,000 out of 570,000 applicants.</p>
+<p>Management occupations had the highest median salary of $118,000, followed by Sales at $102,000. Originally, we did not expect management and sales to have such high median salaries. In fact, both management and sales had higher median salaries than healthcare and computer/math, which had median salaries of $84,000. Although we had expected healthcare practitioners to have a higher median salary, the distribution of wages did skew to the higher side, so our initial expectation of higher wages in this field is not unreasonable. Furthermore, the top 15 companies hiring H-1B applicants consisted mainly of consulting and technology companies, which was what we had expected.</p>
+<p><strong>Citations</strong></p>
+<p>[1] Thrush, Glenn, et al. “Trump Signs Order That Could Lead to Curbs on Foreign Workers.” The New York Times, The New York Times, 18 Apr. 2017, <a href="https://www.nytimes.com/2017/04/18/us/politics/executive-order-hire-buy-american-h1b-visa-trump.html" class="uri">https://www.nytimes.com/2017/04/18/us/politics/executive-order-hire-buy-american-h1b-visa-trump.html</a>. [2] Pierce, Sarah, and Julia Gelatt. “Evolution of the H-1B: Latest Trends in a Program on the Brink of Reform.” Migrationpolicy.org, 2 Apr. 2018, <a href="https://www.migrationpolicy.org/research/evolution-h-1b-latest-trends-program-brink-reform" class="uri">https://www.migrationpolicy.org/research/evolution-h-1b-latest-trends-program-brink-reform</a>. [3] Report on H-1B Petitions: Fiscal Year 2018 Annual Report. Homeland Security: US Citizenship and Immigration Services, 2019, Report on H-1B Petitions: Fiscal Year 2018 Annual Report, <a href="https://www.uscis.gov/sites/default/files/reports-studies/FY-2018-Annual-Report-H-1B-Petitions.pdf" class="uri">https://www.uscis.gov/sites/default/files/reports-studies/FY-2018-Annual-Report-H-1B-Petitions.pdf</a>. [4] Report on H-1B Petitions: Fiscal Year 2014 Annual Report. Homeland Security: US Citizenship and Immigration Services, 2014, Report on H-1B Petitions: Fiscal Year 2014 Annual Report, <a href="https://www.uscis.gov/sites/default/files/USCIS/Resources/Resources%20for%20Congress/FY_2014_H-1B_Petitions_Report_SIGNED.pdf" class="uri">https://www.uscis.gov/sites/default/files/USCIS/Resources/Resources%20for%20Congress/FY_2014_H-1B_Petitions_Report_SIGNED.pdf</a> [5] Krogstad, Jens Manuel, and Michael Keegan. “15 States with the Highest Share of Immigrants in Their Population.” Pew Research Center, Pew Research Center, 14 May 2014, <a href="https://www.pewresearch.org/fact-tank/2014/05/14/15-states-with-the-highest-share-of-immigrants-in-their-population/" class="uri">https://www.pewresearch.org/fact-tank/2014/05/14/15-states-with-the-highest-share-of-immigrants-in-their-population/</a>. [6] Schwartz, Samantha Ann. “5 States Dominating Tech Employment.” CIO Dive, 26 Mar. 2019, <a href="https://www.ciodive.com/news/5-states-dominating-tech-employment/551315/" class="uri">https://www.ciodive.com/news/5-states-dominating-tech-employment/551315/</a>. [7] “Fastest Growing Occupations : Occupational Outlook Handbook.” U.S. Bureau of Labor Statistics, U.S. Bureau of Labor Statistics, 4 Sept. 2019, <a href="https://www.bls.gov/ooh/fastest-growing.htm" class="uri">https://www.bls.gov/ooh/fastest-growing.htm</a>. [8] “2018 Standard Occupational Classification System.” U.S. Bureau of Labor Statistics, U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/soc/2018/major_groups.htm" class="uri">https://www.bls.gov/soc/2018/major_groups.htm</a>.</p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

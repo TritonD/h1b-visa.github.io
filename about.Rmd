@@ -2,9 +2,9 @@
 title: "About Our Project"
 output: html_document
 ---
-
-<center>
 <br>
+<center>
+
 <img src="./picture/h-1b-visa.jpg" style="width:75%">
 
 </center>
