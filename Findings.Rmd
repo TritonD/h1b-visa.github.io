@@ -14,14 +14,20 @@ output: html_document
 
 ### H-1B Applications by State 
 In 2018, the top 5 states that had the most H-1B applications in descending order were California, Texas, New York, New Jersey, and Illinois.It is interesting to note, however, that there were more companies with headquarters in New Jersey wanting to sponsor H-1B applicants compared to in New York and Texas. From the map, we can see that a majority of the states with more than 10,000 H-1B cases were located on the East coast. 
-
+<br>
 
 
 ### H-1B Applications by Industry and Occupation
- 
+There was a total of approximately 570,000 certified H-1B applicants. The math and technology occupational fields have the largest number of H-1B applicants of 397,562 followed by business and finance of 46,055, a much smaller proportion.  
+However, the occupations with the most H-1B applicants does not represent the occupations with the highest median wages. The top 3 occupational field with highest median wage is management of $118,144, followed by sales of $102,232, followed by healthcare of $84,760.
+
+Although, the math and computer fields have the most H-1B applicants with the analytical skill, consulting is an interdisplinary field that employ people from a variety of fields. As a result, the top companies that hires the most H-1B applicants are consulting and technology companies. 
+<br>
+
  
 ### H-1B Applications wage statisics
 When looking at mean annual wages, California, Washington, and Maine were the top 3 worksite states with the highest mean annual wages. Amongst the three states, California’s mean annual wage was $102,054, Washington’s mean annual wage was $99,153, and Maine’s mean annual wage was $90,434 in 2018.
+<br>
 
 <center>
 <br>
