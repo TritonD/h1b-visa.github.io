@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <h2>Background</h2> 
 
-The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Visas are awarded to employers on a first-come, first-served basis, with applications open to submission beginning in April. If the number of applications exceed an annual cap set by Congress during the first five business days of April, visas are then awarded through a lottery system. 
+The H-1B is the most common visa U.S. employers use to bring skilled foreign workers to the states. Laws limit the maximum distribution of new H-1B visas each year and the selection process involves random computer generation from an eligible application pool, also known as the “H-1B lottery” by some. The standard duration of stay with H-1B visa is three years, but can be extended up to six years. 
 
 <br>
 
@@ -74,8 +74,6 @@ For a brief overview of our website, you can view our screencast [here]().
 <br>
 
 <h2>Additional Links</h2> 
-
-Here are some additional links about the H-1B visa for those interested in learning more. 
 
 [Everything you need to know](https://www.upcounsel.com/h1b-visa-status) about the H-1B visa: this answers questions related to what it is, how much it costs, who qualifies, as well as pros and cons.
 
